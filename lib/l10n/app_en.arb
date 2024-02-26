@@ -1,0 +1,56 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+
+  "readWithOutLimits": "Read without limits",
+  "@readWithOutLimits": {
+    "description": "Reading context"
+  },
+
+  "createAccaunt": "Create Accaunt",
+  "@createAccaunt": {
+    "description": "Creatng accaunt"
+  },
+
+  "userName": "User name",
+  "@userName": {
+    "description": "User name"
+  },
+
+  "logIn": "Log in",
+  "@logIn": {
+    "description": "Log in"
+  },
+
+  "dontHaveAccaunt": "Don't have an accaunt yet?",
+  "@dontHaveAccaunt": {
+    "description": "do not accaunt yet"
+  },
+
+  "singUpHere": "Sing up here",
+  "@singUpHere": {
+    "description": "Sing up here"
+  },
+
+  "singUp": "Sing up",
+  "@singUpHere": {
+    "description": "Sing up"
+  },
+
+  "alreadyHaveAccaunt": "Already have an accaunt?",
+  "@alreadyHaveAccaunt": {
+    "description": "Already singned up"
+  },
+
+  "logInHere": "Log in here",
+  "@logInHere": {
+    "description": "Log in here"
+  },
+
+   "onlineLibrary": "Online library",
+  "@onlineLibrary": {
+    "description": "Log in here"
+  }
+}
