@@ -9,6 +9,10 @@ void main() {
     title: "Online Library",
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
+    routes:{
+    '/': (context) => FirstScreen(),
+    '/second': (context) => SecondScreen(),
+  },
     home: OnlineLibrary(),
   ));
 }
