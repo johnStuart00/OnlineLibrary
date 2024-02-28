@@ -27,7 +27,7 @@ class OnlineLibrary extends StatelessWidget {
         '/login': (context) => LogInPage(),
         '/librarymain': (context) => LibraryMainPage(),
       },
-      initialRoute: '/welcome',
+      initialRoute: '/librarymain',
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute<void>(builder: (context) {
           return const Text('Default Route');
