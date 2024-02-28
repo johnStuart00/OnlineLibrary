@@ -28,6 +28,9 @@ class OnlineLibrary extends StatelessWidget {
         GetPage(name: '/singUpPage', page: () => SingUpPage()),
         GetPage(name: '/libraryMain', page: () => LibraryMainPage())
       ],
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       // onGenerateRoute: (RouteSettings settings) {
       //   return MaterialPageRoute<void>(builder: (context) {
       //     return const Text('Default Route');
