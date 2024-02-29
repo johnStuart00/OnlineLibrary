@@ -11,6 +11,12 @@ class LibraryMainPage extends StatefulWidget {
 class _LibraryMainPageState extends State<LibraryMainPage> {
   int _selectedPage = 0;
 
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('1'),
+    Text('2'),
+    Text('3')
+  ];
+
   void onSelectedPage(int index) {
     if (_selectedPage == index) return;
     setState(() {
@@ -27,7 +33,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       ),
       body: SafeArea(
           child: Center(
-        child: Text('Center'),
+        child: _widgetOptions[_selectedPage],
       )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPage,
