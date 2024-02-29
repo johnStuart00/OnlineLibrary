@@ -29,8 +29,11 @@ class OnlineLibrary extends StatelessWidget {
         GetPage(name: '/libraryMain', page: () => LibraryMainPage())
       ],
       theme: ThemeData(
-        primaryColor: Colors.white,
-      ),
+          primaryColor: Colors.white,
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              unselectedItemColor: Colors.red[200],
+              selectedItemColor: Colors.red,
+              backgroundColor: Colors.white)),
       // onGenerateRoute: (RouteSettings settings) {
       //   return MaterialPageRoute<void>(builder: (context) {
       //     return const Text('Default Route');
