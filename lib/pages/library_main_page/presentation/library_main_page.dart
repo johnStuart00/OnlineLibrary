@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:online_library/widgets/favorites_list/favorites_list_widget.dart';
 
 class LibraryMainPage extends StatefulWidget {
   const LibraryMainPage({super.key});
@@ -13,7 +14,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Text('1'),
-    Text('2'),
+    FavoritesListWidget(),
     Text('3')
   ];
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/pages/welcome_page/presentation/welcome_page.dart';
