@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/pages/welcome_page/presentation/welcome_page.dart';
@@ -14,18 +15,18 @@ class OnlineLibrary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Online Library",
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       initialRoute: '/libraryMain',
-      routes: {
-        '/welcome': (context) => const WelcomePage(),
-        '/singIn': (context) => const LogInPage(),
-        'singUp': (context) => SingUpPage(),
-        '/libraryMain': (context) => const LibraryMainPage(),
-      },
+      getPages: [
+        GetPage(name: '/welcome', page: () => WelcomePage()),
+        GetPage(name: '/singIn', page: () => LogInPage()),
+        GetPage(name: 'singUp', page: () => SingUpPage()),
+        GetPage(name: '/libraryMain', page: () => LibraryMainPage()),
+      ],
       theme: ThemeData(
           primaryColor: Colors.white,
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
