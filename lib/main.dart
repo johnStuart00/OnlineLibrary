@@ -22,10 +22,10 @@ class OnlineLibrary extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       initialRoute: '/libraryMain',
       getPages: [
-        GetPage(name: '/welcome', page: () => WelcomePage()),
-        GetPage(name: '/singIn', page: () => LogInPage()),
-        GetPage(name: 'singUp', page: () => SingUpPage()),
-        GetPage(name: '/libraryMain', page: () => LibraryMainPage()),
+        GetPage(name: '/welcome', page: () => const WelcomePage()),
+        GetPage(name: '/singIn', page: () => const LogInPage()),
+        GetPage(name: '/singUp', page: () => const SingUpPage()),
+        GetPage(name: '/libraryMain', page: () => const LibraryMainPage()),
       ],
       theme: ThemeData(
           primaryColor: Colors.white,
