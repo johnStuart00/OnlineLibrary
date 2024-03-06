@@ -5,8 +5,10 @@ class FavoritesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.yellow,
-    );
+    return ListView.builder(itemBuilder: (BuildContext context, int index) {
+      Container(
+        color: Colors.yellow,
+      );
+    });
   }
 }
