@@ -4,8 +4,6 @@ import 'package:online_library/pages/sing_in_page/presentation/login_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
-import '../../../widgets/password_text_field.dart';
-
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 
