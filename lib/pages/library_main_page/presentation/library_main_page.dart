@@ -12,10 +12,10 @@ class LibraryMainPage extends StatefulWidget {
 class _LibraryMainPageState extends State<LibraryMainPage> {
   int _selectedPage = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('1'),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Text('1'),
     FavoritesListWidget(),
-    Text('3')
+    const Text('3')
   ];
 
   void onSelectedPage(int index) {

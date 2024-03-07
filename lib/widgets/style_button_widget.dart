@@ -18,15 +18,10 @@ class StyleButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: buttonColor,
-            border: Border.all(color: buttonBorderColor)),
-        padding: const EdgeInsets.symmetric(vertical: 13),
-        width: double.infinity,
+    return ElevatedButton(
+      onPressed: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 14),
         child: Center(
             child: Text(
           buttonName,

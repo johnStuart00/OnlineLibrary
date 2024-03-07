@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
 
+class Books {
+  final String imageName;
+  final String title;
+  final String bookInfo;
+  final String description;
+
+  Books(
+      {required this.imageName,
+      required this.title,
+      required this.bookInfo,
+      required this.description});
+}
+
 class FavoritesListWidget extends StatelessWidget {
-  const FavoritesListWidget({super.key});
+  FavoritesListWidget({super.key});
+
+  final _books = [
+    Books(
+        imageName: 'assets/images/p_luca_21670_3c13c611.jpeg',
+        title: 'Book name',
+        bookInfo: 'Book info',
+        description: 'description'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10,
+        itemCount: _books.length,
         itemExtent: 163,
         itemBuilder: (BuildContext context, int index) {
+          final books = _books[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Stack(
@@ -30,7 +52,7 @@ class FavoritesListWidget extends StatelessWidget {
                       ]),
                   child: Row(
                     children: [
-                      Image.asset('assets/images/p_luca_21670_3c13c611.jpeg'),
+                      Image.asset(books.imageName),
                       const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
