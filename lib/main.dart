@@ -20,7 +20,7 @@ class OnlineLibrary extends StatelessWidget {
       title: "Online Library",
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      initialRoute: '/libraryMain',
+      initialRoute: '/welcome',
       getPages: [
         GetPage(name: '/welcome', page: () => const WelcomePage()),
         GetPage(name: '/singIn', page: () => const LogInPage()),
