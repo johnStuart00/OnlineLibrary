@@ -18,36 +18,47 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 300, width: 300, child: Placeholder()),
-            const SizedBox(
-              height: 40,
-            ),
-            Text(AppLocalizations.of(context)!.helloWorld),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(AppLocalizations.of(context)!.readWithOutLimits),
-            const SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SingUpPage()));
-              },
-              child: Text(AppLocalizations.of(context)!.createAccaunt),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            StyleButtonWidget(),
-          ],
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 300, width: 300, child: Placeholder()),
+              const SizedBox(
+                height: 40,
+              ),
+              Text(AppLocalizations.of(context)!.helloWorld),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(AppLocalizations.of(context)!.readWithOutLimits),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SingUpPage()));
+                },
+                child: Text(AppLocalizations.of(context)!.createAccaunt),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              StyleButtonWidget(
+                buttonName: AppLocalizations.of(context)!.logIn,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LogInPage()));
+                },
+              ),
+            ],
+          ),
         ),
       )),
     );
