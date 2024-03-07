@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StyleButtonWidget extends StatelessWidget {
   final String buttonName;
   final onTap;
+  final Color buttonColor;
+  final Color buttonBorderColor;
+  final Color buttonTextColor;
 
   const StyleButtonWidget({
+    super.key,
     required this.buttonName,
     required this.onTap,
+    required this.buttonColor,
+    required this.buttonBorderColor,
+    required this.buttonTextColor,
   });
 
   @override
@@ -16,15 +22,15 @@ class StyleButtonWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.red,
-        ),
+            borderRadius: BorderRadius.circular(15),
+            color: buttonColor,
+            border: Border.all(color: buttonBorderColor)),
         padding: const EdgeInsets.symmetric(vertical: 13),
         width: double.infinity,
         child: Center(
             child: Text(
           buttonName,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: buttonTextColor),
         )),
       ),
     );
