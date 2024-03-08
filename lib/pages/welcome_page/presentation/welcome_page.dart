@@ -69,13 +69,3 @@ class _WelcomePageState extends State<WelcomePage> {
     );
   }
 }
-
-// ElevatedButton(
-//                 onPressed: () {
-//                   Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                           builder: (context) => const SingUpPage()));
-//                 },
-//                 child: Text(AppLocalizations.of(context)!.createAccaunt),
-//               ),

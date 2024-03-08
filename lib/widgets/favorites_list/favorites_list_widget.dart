@@ -26,73 +26,92 @@ class FavoritesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: _books.length,
-        itemExtent: 163,
-        itemBuilder: (BuildContext context, int index) {
-          final books = _books[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Stack(
-              children: [
-                Container(
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.black.withOpacity(0.2),
+    return Stack(
+      children: [
+        ListView.builder(
+            padding: const EdgeInsets.only(top: 70),
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            itemCount: _books.length,
+            itemExtent: 163,
+            itemBuilder: (BuildContext context, int index) {
+              final book = _books[index];
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: Stack(
+                  children: [
+                    Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black.withOpacity(0.2),
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 1,
+                              offset: const Offset(0, 2),
+                            ),
+                          ]),
+                      child: Row(
+                        children: [
+                          Image.asset(book.imageName),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  book.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                SizedBox(height: 20),
+                                Text(
+                                  book.bookInfo,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                SizedBox(height: 20),
+                                Text(
+                                  book.description,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                SizedBox(height: 20),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 1,
-                          offset: const Offset(0, 2),
-                        ),
-                      ]),
-                  child: Row(
-                    children: [
-                      Image.asset(books.imageName),
-                      const Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Book name',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              'Book info',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              'Book description',
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 20),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                    Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () {
+                          print('1');
+                        },
+                      ),
+                    )
+                  ],
                 ),
-                Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      print('1');
-                    },
-                  ),
-                )
-              ],
+              );
+            }),
+        Padding(
+          padding: EdgeInsets.all(10.0),
+          child: TextField(
+            decoration: InputDecoration(
+              labelText: "Search",
+              filled: true,
+              fillColor: Colors.white.withAlpha(235),
+              border: OutlineInputBorder(),
             ),
-          );
-        });
+          ),
+        ),
+      ],
+    );
   }
 }
