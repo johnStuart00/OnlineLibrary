@@ -12,12 +12,6 @@ class LibraryMainPage extends StatefulWidget {
 class _LibraryMainPageState extends State<LibraryMainPage> {
   int _selectedPage = 0;
 
-  static final List<Widget> _widgetOptions = <Widget>[
-    const Text('1'),
-    FavoritesListWidget(),
-    const Text('3')
-  ];
-
   void onSelectedPage(int index) {
     if (_selectedPage == index) return;
     setState(() {
@@ -33,8 +27,12 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
         centerTitle: true,
       ),
       body: SafeArea(
-          child: Center(
-        child: _widgetOptions[_selectedPage],
+          child: IndexedStack(
+        children: [
+          const Text('1'),
+          FavoritesListWidget(),
+          const Text('3'),
+        ],
       )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPage,
