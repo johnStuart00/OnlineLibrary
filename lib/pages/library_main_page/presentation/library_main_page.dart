@@ -28,6 +28,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       ),
       body: SafeArea(
           child: IndexedStack(
+        index: _selectedPage,
         children: [
           const Text('1'),
           FavoritesListWidget(),
