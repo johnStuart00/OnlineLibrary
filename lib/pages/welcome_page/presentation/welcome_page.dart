@@ -15,7 +15,6 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -36,21 +35,6 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 30,
               ),
               StyleButtonWidget(
-                buttonColor: Colors.white,
-                buttonBorderColor: Colors.red,
-                buttonTextColor: Colors.red,
-                buttonName: AppLocalizations.of(context)!.createAccaunt,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SingUpPage()));
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              StyleButtonWidget(
                 buttonColor: Colors.red,
                 buttonBorderColor: Colors.white,
                 buttonTextColor: Colors.white,
@@ -60,6 +44,21 @@ class _WelcomePageState extends State<WelcomePage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const LogInPage()));
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              StyleButtonWidget(
+                buttonColor: Colors.white,
+                buttonBorderColor: Colors.red,
+                buttonTextColor: Colors.red,
+                buttonName: AppLocalizations.of(context)!.createAccaunt,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SingUpPage()));
                 },
               ),
             ],
