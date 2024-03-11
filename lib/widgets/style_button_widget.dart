@@ -20,6 +20,8 @@ class StyleButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onTap,
+      style:
+          ButtonStyle(backgroundColor: MaterialStateProperty.all(buttonColor)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: Center(
