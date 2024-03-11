@@ -15,6 +15,11 @@ class _ReadAndBuyPageState extends State<ReadAndBuyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.arrow_back_ios_new_rounded)),
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -100,6 +105,7 @@ class _ReadAndBuyPageState extends State<ReadAndBuyPage> {
                     buttonColor: Colors.red,
                     buttonBorderColor: Colors.white,
                     buttonTextColor: Colors.white),
+                const SizedBox(height: 20),
                 StyleButtonWidget(
                     buttonName: 'Read',
                     onTap: () {},
