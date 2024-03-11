@@ -32,17 +32,18 @@ class OnlineLibrary extends StatelessWidget {
           page: () => const ReadAndBuyPage(),
         )
       ],
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute<void>(builder: (context) {
+          return const Text('Default Route');
+        });
+      },
       theme: ThemeData(
           primaryColor: Colors.white,
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
               unselectedItemColor: Colors.red[200],
               selectedItemColor: Colors.red,
               backgroundColor: Colors.white)),
-      // onGenerateRoute: (RouteSettings settings) {
-      //   return MaterialPageRoute<void>(builder: (context) {
-      //     return const Text('Default Route');
-      //   });
-      // },
+
       // home: WelcomePage(),
     );
   }
