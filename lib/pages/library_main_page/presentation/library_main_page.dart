@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:online_library/widgets/favorites_list/favorites_list_widget.dart';
+import 'package:online_library/widgets/left_nav_bar.dart';
 
 class LibraryMainPage extends StatefulWidget {
   const LibraryMainPage({super.key});
@@ -23,6 +24,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: LeftNavBarWidget(),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.onlineLibrary),
         centerTitle: true,
@@ -38,10 +40,6 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
         ),
       ),
       bottomNavigationBar: Container(
-        // decoration: BoxDecoration(
-        //     color: Colors.black,
-        //     borderRadius: BorderRadius.all(Radius.circular(10))),  // border decoration
-
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -87,24 +85,6 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
               ]),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _selectedPage,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.favorite),
-      //       label: 'Favorite',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //       label: 'Profile',
-      //     ),
-      //   ],
-      //   onTap: onSelectedPage,
-      // ),
     );
   }
 }
