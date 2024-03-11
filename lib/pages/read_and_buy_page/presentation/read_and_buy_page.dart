@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
@@ -17,7 +18,9 @@ class _ReadAndBuyPageState extends State<ReadAndBuyPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(Icons.arrow_back_ios_new_rounded)),
       ),
       body: SafeArea(

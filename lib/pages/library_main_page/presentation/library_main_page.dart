@@ -37,7 +37,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPage,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
