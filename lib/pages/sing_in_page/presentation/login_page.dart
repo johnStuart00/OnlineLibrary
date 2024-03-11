@@ -40,7 +40,7 @@ class _LogInPageState extends State<LogInPage> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                if (phoneNameController.text == "123" &&
+                if (phoneNameController.text == "65 656565" &&
                     passwordController.text == "123") {
                   Navigator.push(
                       context,
