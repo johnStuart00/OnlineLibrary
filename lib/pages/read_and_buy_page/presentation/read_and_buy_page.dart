@@ -99,6 +99,12 @@ class _ReadAndBuyPageState extends State<ReadAndBuyPage> {
                     onTap: () {},
                     buttonColor: Colors.red,
                     buttonBorderColor: Colors.white,
+                    buttonTextColor: Colors.white),
+                StyleButtonWidget(
+                    buttonName: 'Read',
+                    onTap: () {},
+                    buttonColor: Colors.red,
+                    buttonBorderColor: Colors.white,
                     buttonTextColor: Colors.white)
               ],
             ),
