@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Books {
   final String imageName;
@@ -150,7 +151,7 @@ class _FavoritesListWidgetState extends State<FavoritesListWidget> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
                         onTap: () {
-                          print('1');
+                          Get.toNamed('/readAndBuyPage');
                         },
                       ),
                     )

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:online_library/pages/sing_in_page/presentation/login_page.dart';
-import 'package:online_library/widgets/user_name_text_field.dart';
+import 'package:online_library/widgets/phone_number_text_field.dart';
 
 class SingUpPage extends StatefulWidget {
   const SingUpPage({super.key});
@@ -27,7 +27,7 @@ class _SingUpPageState extends State<SingUpPage> {
                 child: Placeholder(),
               ),
               const SizedBox(height: 20),
-              UserNameTextField(
+              PhoneNumberTextField(
                 userNameController: phoneNameController,
                 label: 'Phone number',
               ),

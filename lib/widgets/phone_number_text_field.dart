@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class UserNameTextField extends StatelessWidget {
-  const UserNameTextField({
+class PhoneNumberTextField extends StatelessWidget {
+  const PhoneNumberTextField({
     super.key,
     required this.userNameController,
     required this.label,

@@ -4,7 +4,7 @@ import 'package:online_library/pages/library_main_page/presentation/library_main
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 
 import '../../../widgets/password_text_field.dart';
-import '../../../widgets/user_name_text_field.dart';
+import '../../../widgets/phone_number_text_field.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -31,7 +31,7 @@ class _LogInPageState extends State<LogInPage> {
               child: Placeholder(),
             ),
             const SizedBox(height: 30),
-            UserNameTextField(
+            PhoneNumberTextField(
               userNameController: phoneNameController,
               label: 'Phone number',
             ),
