@@ -5,6 +5,7 @@ import 'package:online_library/pages/read_and_buy_page/presentation/read_and_buy
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/pages/welcome_page/presentation/welcome_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:online_library/widgets/home_page_details/home_page_details_widget.dart';
 import 'pages/sing_in_page/presentation/login_page.dart';
 
 void main() {
@@ -30,7 +31,10 @@ class OnlineLibrary extends StatelessWidget {
         GetPage(
           name: '/readAndBuyPage',
           page: () => const ReadAndBuyPage(),
-        )
+        ),
+        GetPage(
+            name: '/libraryMain/mainDetails',
+            page: () => const MainDatailsWidget()),
       ],
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute<void>(builder: (context) {
