@@ -171,14 +171,14 @@ class _FavoritesListWidgetState extends State<FavoritesListWidget> {
               );
             }),
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
               labelText: "Search",
               filled: true,
               fillColor: Colors.white.withAlpha(235),
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
           ),
         ),

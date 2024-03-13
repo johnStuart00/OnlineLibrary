@@ -15,6 +15,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -22,7 +23,8 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 300, width: 300, child: Placeholder()),
+              const Image(
+                  image: AssetImage('assets/images/tagamly_sozler001.png')),
               const SizedBox(
                 height: 40,
               ),
@@ -35,7 +37,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 30,
               ),
               StyleButtonWidget(
-                buttonColor: Colors.red,
+                buttonColor: const Color.fromRGBO(13, 57, 52, 1),
                 buttonBorderColor: Colors.white,
                 buttonTextColor: Colors.white,
                 buttonName: AppLocalizations.of(context)!.logIn,
@@ -51,8 +53,8 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               StyleButtonWidget(
                 buttonColor: Colors.white,
-                buttonBorderColor: Colors.red,
-                buttonTextColor: Colors.red,
+                buttonBorderColor: const Color.fromRGBO(13, 57, 52, 1),
+                buttonTextColor: const Color.fromRGBO(13, 57, 52, 1),
                 buttonName: AppLocalizations.of(context)!.createAccaunt,
                 onTap: () {
                   Navigator.push(
