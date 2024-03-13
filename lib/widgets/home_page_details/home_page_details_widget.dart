@@ -16,6 +16,14 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
     'Old-books'
   ];
 
+  List<IconData> icons = [
+    Icons.home,
+    Icons.abc,
+    Icons.abc_rounded,
+    Icons.ac_unit,
+    Icons.access_alarm_rounded
+  ];
+
   int current = 0;
 
   @override
@@ -34,40 +42,68 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                 itemCount: items.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (ctx, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        current = index;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.all(5),
-                      width: 80,
-                      height: 45,
-                      decoration: BoxDecoration(
-                          color: current == index
-                              ? Colors.white70
-                              : Colors.white54,
-                          borderRadius: current == index
-                              ? BorderRadius.circular(15)
-                              : BorderRadius.circular(10),
-                          border: current == index
-                              ? Border.all(color: Colors.red, width: 2)
-                              : null),
-                      child: Center(
-                        child: Text(
-                          items[index],
-                          style: TextStyle(
+                  return Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            current = index;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          margin: const EdgeInsets.all(5),
+                          width: 80,
+                          height: 45,
+                          decoration: BoxDecoration(
                               color: current == index
-                                  ? Colors.black
-                                  : Colors.grey),
+                                  ? Colors.white70
+                                  : Colors.white54,
+                              borderRadius: current == index
+                                  ? BorderRadius.circular(15)
+                                  : BorderRadius.circular(10),
+                              border: current == index
+                                  ? Border.all(color: Colors.red, width: 2)
+                                  : null),
+                          child: Center(
+                            child: Text(
+                              items[index],
+                              style: TextStyle(
+                                  color: current == index
+                                      ? Colors.black
+                                      : Colors.grey),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Visibility(
+                          visible: current == index,
+                          child: Container(
+                            width: 5,
+                            height: 5,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.red),
+                          ))
+                    ],
                   );
                 }),
           ),
+          //MAIN BODY,
+          Container(
+            margin: const EdgeInsets.only(top: 30),
+            width: double.infinity,
+            height: 500,
+            child: Column(
+              children: [
+                Icon(
+                  icons[current],
+                  size: 200,
+                  color: Colors.red,
+                ),
+                Text(items[current])
+              ],
+            ),
+          )
         ],
       ),
     );
