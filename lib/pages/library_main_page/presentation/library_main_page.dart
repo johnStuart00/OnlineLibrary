@@ -25,9 +25,12 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: LeftNavBarWidget(),
+      backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
+      drawer: const LeftNavBarWidget(),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.onlineLibrary),
+        title: Text(
+          AppLocalizations.of(context)!.tagamlySozler,
+        ),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -62,8 +65,10 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
               duration:
                   const Duration(milliseconds: 400), // tab animation duration
               gap: 6, // the tab button gap between icon and text
-              color: Colors.red, // unselected icon color
-              activeColor: Colors.red, // selected icon and text color
+              color:
+                  const Color.fromRGBO(13, 57, 52, 1), // unselected icon color
+              activeColor: const Color.fromRGBO(
+                  13, 57, 52, 1), // selected icon and text color
               iconSize: 24, // tab button icon size
               tabBackgroundColor: Colors.grey.withOpacity(0.3),
               backgroundColor: Colors.white, // selected tab background color

@@ -63,7 +63,9 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                                   ? BorderRadius.circular(15)
                                   : BorderRadius.circular(10),
                               border: current == index
-                                  ? Border.all(color: Colors.red, width: 2)
+                                  ? Border.all(
+                                      color: Color.fromRGBO(13, 57, 52, 1),
+                                      width: 2)
                                   : null),
                           child: Center(
                             child: Text(
@@ -82,7 +84,8 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                             width: 5,
                             height: 5,
                             decoration: const BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.red),
+                                shape: BoxShape.circle,
+                                color: Color.fromRGBO(13, 57, 52, 1)),
                           ))
                     ],
                   );
@@ -98,7 +101,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                 Icon(
                   icons[current],
                   size: 200,
-                  color: Colors.red,
+                  color: const Color.fromRGBO(13, 57, 52, 1),
                 ),
                 Text(items[current])
               ],
