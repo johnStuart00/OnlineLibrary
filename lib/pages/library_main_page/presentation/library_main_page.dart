@@ -22,16 +22,30 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
     });
   }
 
+  bool _isSearch = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
       drawer: const LeftNavBarWidget(),
       appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context)!.tagamlySozler,
-        ),
+        title: _isSearch
+            ? _buildSearchField()
+            : Text(
+                AppLocalizations.of(context)!.tagamlySozler,
+              ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(_isSearch ? Icons.close : Icons.search),
+            onPressed: () {
+              setState(() {
+                _isSearch = !_isSearch;
+              });
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: IndexedStack(
@@ -93,4 +107,17 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       ),
     );
   }
+}
+
+Widget _buildSearchField() {
+  return TextField(
+    decoration: InputDecoration(
+      hintText: 'Search...',
+      border: InputBorder.none,
+    ),
+    autofocus: true,
+    onChanged: (value) {
+      // Perform search operation here
+    },
+  );
 }

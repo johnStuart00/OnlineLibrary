@@ -104,7 +104,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
             const SizedBox(height: 5),
 
             SizedBox(
-              height: 290,
+              height: 320,
               width: double.infinity,
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
@@ -116,22 +116,56 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                       Padding(
                         padding: const EdgeInsets.all(18.0),
                         child: Container(
-                            width: 150,
-                            height: 250,
-                            decoration: BoxDecoration(
-                              color: const Color.fromRGBO(13, 57, 52, 1),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(0, 3),
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    bottomLeft: Radius.circular(30),
+                                    bottomRight: Radius.circular(30)),
+                                child: Image.asset(
+                                  'assets/images/tagamly_sozler001.png',
+                                  width: 300,
+                                  height: 200,
+                                  fit: BoxFit.cover,
                                 ),
-                              ],
-                            ),
-                            child: Text(items[current])),
-                      )
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'Book Name',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                'Author Name',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   );
                 },
@@ -143,40 +177,6 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
               child: Text('New'),
             ),
             const SizedBox(height: 5),
-            SizedBox(
-              height: 350,
-              width: double.infinity,
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (contx, index) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Container(
-                            width: 150,
-                            height: 250,
-                            decoration: BoxDecoration(
-                              color: const Color.fromRGBO(13, 57, 52, 1),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Text(items[current])),
-                      )
-                    ],
-                  );
-                },
-              ),
-            ),
           ],
         ),
       ),
