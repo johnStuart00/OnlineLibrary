@@ -101,6 +101,7 @@ class _FavoritesListWidgetState extends State<FavoritesListWidget> {
     return Stack(
       children: [
         ListView.builder(
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.only(top: 70),
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             itemCount: _filteredBooks.length,
