@@ -27,7 +27,6 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
       drawer: const LeftNavBarWidget(),
       appBar: AppBar(
         title: _isSearch
@@ -58,9 +57,9 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(30),
             topLeft: Radius.circular(30),
           ),
@@ -73,19 +72,18 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
               //haptic: true, // haptic feedback
               tabBorderRadius: 25,
               tabShadow: [
-                BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 2)
+                BoxShadow(color: Theme.of(context).shadowColor, blurRadius: 2)
               ], // tab button shadow
               curve: Curves.decelerate, // tab animation curves
               duration:
                   const Duration(milliseconds: 400), // tab animation duration
               gap: 6, // the tab button gap between icon and text
-              color:
-                  const Color.fromRGBO(13, 57, 52, 1), // unselected icon color
-              activeColor: const Color.fromRGBO(
-                  13, 57, 52, 1), // selected icon and text color
+
+              activeColor: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedItemColor, // selected icon and text color
               iconSize: 24, // tab button icon size
-              tabBackgroundColor: Colors.grey.withOpacity(0.3),
-              backgroundColor: Colors.white, // selected tab background color
+              // selected tab background color
               padding: const EdgeInsets.all(15),
               selectedIndex: _selectedPage,
               onTabChange: onSelectedPage,
@@ -111,7 +109,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
 
 Widget _buildSearchField() {
   return TextField(
-    decoration: InputDecoration(
+    decoration: const InputDecoration(
       hintText: 'Search...',
       border: InputBorder.none,
     ),

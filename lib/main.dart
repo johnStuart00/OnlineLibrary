@@ -41,11 +41,26 @@ class OnlineLibrary extends StatelessWidget {
         });
       },
       theme: ThemeData(
-          primaryColor: Colors.white,
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              unselectedItemColor: Colors.red[200],
-              selectedItemColor: Colors.red,
-              backgroundColor: Colors.white)),
+          scaffoldBackgroundColor: const Color.fromRGBO(249, 238, 240, 1),
+          primaryColorLight: const Color.fromRGBO(13, 57, 52, 1),
+          primaryColorDark: Colors.white,
+          textTheme: const TextTheme(
+              titleLarge: TextStyle(color: Color.fromRGBO(13, 57, 52, 1)),
+              titleMedium: TextStyle(color: Color.fromRGBO(13, 57, 52, 1))),
+          shadowColor: Colors.grey.withOpacity(0.2),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color.fromRGBO(13, 57, 52, 1),
+            titleTextStyle: TextStyle(color: Color.fromRGBO(249, 238, 240, 1)),
+            iconTheme: IconThemeData(
+              color: Color.fromRGBO(249, 238, 240, 1),
+            ),
+            elevation: 2.0,
+          ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.white,
+            selectedItemColor: Color.fromRGBO(13, 57, 52, 1),
+            unselectedItemColor: Color.fromRGBO(13, 57, 52, 1),
+          )),
 
       // home: WelcomePage(),
     );

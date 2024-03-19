@@ -6,11 +6,12 @@ class LeftNavBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).primaryColorDark,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('tagamly_sozler'),
+            accountName: const Text('tagamly_sozler'),
             accountEmail: const Text(
               'tagamlysozler@gmai.com',
             ),
@@ -25,7 +26,6 @@ class LeftNavBarWidget extends StatelessWidget {
               ),
             ),
             decoration: const BoxDecoration(
-              color: Colors.blue,
               image: DecorationImage(
                 image: NetworkImage(
                   'https://media.istockphoto.com/id/476098860/vector/wonderful-morning-in-the-blue-mountains.jpg?s=612x612&w=0&k=20&c=0nuLvsWKXPReu01RvbXTKIwlUYxOQvoXD_qVBrsapxc=',
@@ -37,7 +37,6 @@ class LeftNavBarWidget extends StatelessWidget {
           ListTile(
             leading: const Icon(
               Icons.favorite,
-              color: Colors.deepOrangeAccent,
             ),
             title: const Text("Favorites"),
             onTap: () {

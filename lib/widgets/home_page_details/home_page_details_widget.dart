@@ -68,7 +68,8 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                                     : BorderRadius.circular(10),
                                 border: current == index
                                     ? Border.all(
-                                        color: Color.fromRGBO(13, 57, 52, 1),
+                                        color:
+                                            const Color.fromRGBO(13, 57, 52, 1),
                                         width: 2)
                                     : null),
                             child: Center(
@@ -122,10 +123,10 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Theme.of(context).shadowColor,
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset: Offset(0, 3),
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
@@ -133,7 +134,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(30),
                                     topRight: Radius.circular(30),
                                     bottomLeft: Radius.circular(30),
@@ -145,23 +146,16 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              SizedBox(height: 10),
-                              Text(
-                                'Book Name',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 10),
+                              Text('Book Name',
+                                  style:
+                                      Theme.of(context).textTheme.titleLarge),
+                              const SizedBox(height: 5),
                               Text(
                                 'Author Name',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontStyle: FontStyle.italic,
-                                ),
+                                style: Theme.of(context).textTheme.titleMedium,
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                             ],
                           ),
                         ),
