@@ -27,24 +27,26 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const LeftNavBarWidget(),
+      //drawer: const LeftNavBarWidget(),
       appBar: AppBar(
-        title: _isSearch
-            ? _buildSearchField()
-            : Text(
-                AppLocalizations.of(context)!.tagamlySozler,
-              ),
+        title:
+            // _isSearch
+            //     ? _buildSearchField()
+            //     :
+            Text(
+          AppLocalizations.of(context)!.tagamlySozler,
+        ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(_isSearch ? Icons.close : Icons.search),
-            onPressed: () {
-              setState(() {
-                _isSearch = !_isSearch;
-              });
-            },
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(_isSearch ? Icons.close : Icons.search),
+        //     onPressed: () {
+        //       setState(() {
+        //         _isSearch = !_isSearch;
+        //       });
+        //     },
+        //   ),
+        // ],
       ),
       body: SafeArea(
         child: IndexedStack(
