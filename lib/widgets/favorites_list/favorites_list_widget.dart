@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_library/widgets/search_box_widget.dart';
 
 class Books {
   final id;
@@ -173,17 +174,12 @@ class _FavoritesListWidgetState extends State<FavoritesListWidget> {
             }),
         Padding(
           padding: const EdgeInsets.all(10.0),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              labelText: "Search",
-              filled: true,
-              fillColor: Colors.white.withAlpha(235),
-              border: const OutlineInputBorder(),
-            ),
+          child: SearchBoxWidget(
+            searchController: _searchController,
           ),
         ),
       ],
     );
   }
 }
+// controller: _searchController,

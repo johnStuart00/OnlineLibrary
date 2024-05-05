@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
+import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
 import '../../../widgets/password_text_field.dart';
@@ -21,7 +22,7 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
+      backgroundColor: AppColors.mainColorWhite,
       body: SafeArea(
           child: Center(
         child: Padding(
@@ -40,9 +41,9 @@ class _LogInPageState extends State<LogInPage> {
               PasswordTextField(passwordController: passwordController),
               const SizedBox(height: 30),
               StyleButtonWidget(
-                buttonColor: const Color.fromRGBO(13, 57, 52, 1),
-                buttonBorderColor: Colors.white,
-                buttonTextColor: Colors.white,
+                buttonColor: AppColors.mainColor,
+                buttonBorderColor: AppColors.mainWhite,
+                buttonTextColor: AppColors.mainWhite,
                 buttonName: AppLocalizations.of(context)!.logIn,
                 onTap: () {
                   if (phoneNameController.text == "65 656565" &&

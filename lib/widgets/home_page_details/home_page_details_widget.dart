@@ -1,4 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:online_library/widgets/search_box_widget.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainDatailsWidget extends StatefulWidget {
   MainDatailsWidget({super.key});
@@ -25,7 +29,18 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
     Icons.access_alarm_rounded
   ];
 
+  final urlImages = [
+    'assets/images/carousel_images/9f0bbe386a.jpg',
+    'assets/images/carousel_images/346824345923811.webp',
+    'assets/images/carousel_images/b94740f80df563fa7443f481b3f7fab1.png',
+    'assets/images/carousel_images/f79beacdef1ab0dc3d00e6c02542d89a.jpg',
+    'assets/images/carousel_images/image-1.jpg',
+  ];
+  int activeIndex = 0;
+
   int current = 0;
+
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +53,11 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //Search box start
+            SearchBoxWidget(
+              searchController: _searchController,
+            ),
+            //Search box end
             SizedBox(
               height: 60,
               width: double.infinity,
@@ -98,12 +118,44 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
             ),
             //MAIN BODY,
             const SizedBox(height: 10),
+            // Image Carousel start
+            SizedBox(
+              child: Column(
+                children: [
+                  CarouselSlider.builder(
+                    itemCount: urlImages.length,
+                    options: CarouselOptions(
+                        initialPage: 0,
+                        height: 200.0,
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 2),
+                        enlargeCenterPage: true,
+                        enableInfiniteScroll: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            activeIndex = index;
+                          });
+                        }),
+                    itemBuilder: (
+                      context,
+                      index,
+                      realIndex,
+                    ) {
+                      final urlImage = urlImages[index];
+                      return _buildImage(urlImage, index);
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  _buildIndicator(),
+                ],
+              ),
+            ),
+            // Image Carousel end
+            const SizedBox(height: 5),
             const Padding(
               padding: EdgeInsets.only(left: 30),
               child: Text('The Best'),
             ),
-            const SizedBox(height: 5),
-
             SizedBox(
               height: 320,
               width: double.infinity,
@@ -176,4 +228,27 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
       ),
     );
   }
+
+  Widget _buildImage(String urlImage, int index) => Container(
+        //margin: const EdgeInsets.symmetric(horizontal: 1),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Image.asset(
+            urlImage,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+
+  Widget _buildIndicator() => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: urlImages.length,
+        effect: ExpandingDotsEffect(
+          activeDotColor: Colors.blue,
+          radius: 8,
+          spacing: 10,
+          dotHeight: 9,
+          dotWidth: 9,
+        ),
+      );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:online_library/pages/sing_in_page/presentation/login_page.dart';
+import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/phone_number_text_field.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
@@ -17,7 +18,7 @@ class _SingUpPageState extends State<SingUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(249, 238, 240, 1),
+      backgroundColor: AppColors.mainColorWhite,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -36,9 +37,9 @@ class _SingUpPageState extends State<SingUpPage> {
                   height: 30,
                 ),
                 StyleButtonWidget(
-                  buttonColor: const Color.fromRGBO(13, 57, 52, 1),
-                  buttonBorderColor: Colors.white,
-                  buttonTextColor: Colors.white,
+                  buttonColor: AppColors.mainColor,
+                  buttonBorderColor: AppColors.mainWhite,
+                  buttonTextColor: AppColors.mainWhite,
                   buttonName: AppLocalizations.of(context)!.singUp,
                   onTap: () {
                     Navigator.push(

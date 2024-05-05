@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:online_library/widgets/favorites_list/favorites_list_widget.dart';
 import 'package:online_library/widgets/home_page_details/home_page_details_widget.dart';
-import 'package:online_library/widgets/left_nav_bar.dart';
 
 class LibraryMainPage extends StatefulWidget {
   const LibraryMainPage({super.key});
@@ -24,30 +23,34 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
 
   bool _isSearch = false;
 
+  bool typing = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //drawer: const LeftNavBarWidget(),
-      appBar: AppBar(
-        title:
-            // _isSearch
-            //     ? _buildSearchField()
-            //     :
-            Text(
-          AppLocalizations.of(context)!.tagamlySozler,
-        ),
-        centerTitle: true,
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(_isSearch ? Icons.close : Icons.search),
-        //     onPressed: () {
-        //       setState(() {
-        //         _isSearch = !_isSearch;
-        //       });
-        //     },
-        //   ),
-        // ],
-      ),
+      // appBar: AppBar(
+      //   // title:
+      //   //     // _isSearch
+      //   //     //     ? _buildSearchField()
+      //   //     //     :
+      //   //     Text(
+      //   //   AppLocalizations.of(context)!.tagamlySozler,
+      //   // ),
+      //   title: const TextBox(),
+
+      //   centerTitle: true,
+      //   // actions: [
+      //   //   IconButton(
+      //   //     icon: Icon(_isSearch ? Icons.close : Icons.search),
+      //   //     onPressed: () {
+      //   //       setState(() {
+      //   //         _isSearch = !_isSearch;
+      //   //       });
+      //   //     },
+      //   //   ),
+      //   // ],
+      // ),
       body: SafeArea(
         child: IndexedStack(
           index: _selectedPage,
