@@ -94,16 +94,16 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
               onTabChange: onSelectedPage,
               tabs: const [
                 GButton(
-                  icon: Icons.home,
-                  text: "Home",
+                  icon: Icons.my_library_books_outlined,
+                  text: "Sanow",
                 ),
                 GButton(
-                  icon: Icons.favorite_border,
-                  text: "Favorites",
+                  icon: Icons.menu_book_sharp,
+                  text: "Meniň kitaplarym",
                 ),
                 GButton(
                   icon: Icons.person,
-                  text: "Profile",
+                  text: "Agza bol",
                 ),
               ]),
         ),

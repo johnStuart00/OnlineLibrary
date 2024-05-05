@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -13,7 +14,8 @@ class MainDatailsWidget extends StatefulWidget {
 
 class _MainDatailsWidgetState extends State<MainDatailsWidget> {
   List<String> items = [
-    'All',
+    'Bölümler',
+    'Hemmesi',
     'Novel',
     'Self-love',
     'Science',
@@ -38,7 +40,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
   ];
   int activeIndex = 0;
 
-  int current = 0;
+  int current = 1;
 
   final _searchController = TextEditingController();
 
@@ -58,6 +60,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
               searchController: _searchController,
             ),
             //Search box end
+            //Categories box start
             SizedBox(
               height: 60,
               width: double.infinity,
@@ -116,7 +119,8 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
                     );
                   }),
             ),
-            //MAIN BODY,
+            //Categories box end
+            //MAIN BODY Start,
             const SizedBox(height: 10),
             // Image Carousel start
             SizedBox(
@@ -244,7 +248,7 @@ class _MainDatailsWidgetState extends State<MainDatailsWidget> {
         activeIndex: activeIndex,
         count: urlImages.length,
         effect: ExpandingDotsEffect(
-          activeDotColor: Colors.blue,
+          activeDotColor: AppColors.mainColor,
           radius: 8,
           spacing: 10,
           dotHeight: 9,
