@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
-class ProfilePageWidget extends StatelessWidget {
+class ProfilePageWidget extends StatefulWidget {
   const ProfilePageWidget({super.key});
 
+  @override
+  State<ProfilePageWidget> createState() => _ProfilePageWidgetState();
+}
+
+enum SingingCharacter { tkm, rus, eng }
+
+SingingCharacter? _character = SingingCharacter.tkm;
+
+class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,7 +72,17 @@ class ProfilePageWidget extends StatelessWidget {
           const SizedBox(height: 10),
           //Profile settings
           _SettingsContainerWidget(
-            onTap: () {},
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Ulgamyň dili',
+                barrierDismissible: true,
+                content: Column(
+                  children: [
+                    LanguageRadioButton(),
+                  ],
+                ),
+              );
+            },
             containerName: 'Ulgamyň dili',
             containerItemValue: 'Turkmen dili',
             containerIcon: Icons.language_rounded,
@@ -114,7 +135,7 @@ class _SettingsContainerWidget extends StatelessWidget {
   final String containerName;
   final String containerItemValue;
   final IconData containerIcon;
-  final Function onTap;
+  final onTap;
   const _SettingsContainerWidget({
     required this.containerName,
     required this.containerItemValue,
@@ -125,9 +146,7 @@ class _SettingsContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onTap;
-      },
+      onTap: onTap,
       child: SizedBox(
         height: 40,
         child: Container(
@@ -157,6 +176,61 @@ class _SettingsContainerWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class LanguageRadioButton extends StatefulWidget {
+  const LanguageRadioButton({super.key});
+
+  @override
+  State<LanguageRadioButton> createState() => _LanguageRadioButtonState();
+}
+
+class _LanguageRadioButtonState extends State<LanguageRadioButton> {
+  SingingCharacter? _character = SingingCharacter.tkm;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Türkmen dili'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.tkm,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Rus dili'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.rus,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Iňlis dili'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.eng,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 }
