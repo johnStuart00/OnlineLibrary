@@ -39,30 +39,22 @@ class LeftNavBarWidget extends StatelessWidget {
               Icons.favorite,
             ),
             title: const Text("Favorites"),
-            onTap: () {
-              print('favorite clicked');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.group),
             title: const Text("Group"),
-            onTap: () {
-              print('Group clicked');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.share),
             title: const Text("Share"),
-            onTap: () {
-              print('Share clicked');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.notifications),
             title: const Text("Notifications"),
-            onTap: () {
-              print('Notifications clicked');
-            },
+            onTap: () {},
           ),
           const Divider(
             height: 10,
@@ -70,24 +62,18 @@ class LeftNavBarWidget extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text("Settings"),
-            onTap: () {
-              print('Settings clicked');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.insert_drive_file),
             title: const Text("Policies"),
-            onTap: () {
-              print('Policies clicked');
-            },
+            onTap: () {},
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
             title: const Text("Exit"),
-            onTap: () {
-              print("Exit clicked");
-            },
+            onTap: () {},
           ),
         ],
       ),

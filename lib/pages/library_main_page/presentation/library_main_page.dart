@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:online_library/pages/favorites_page/favorites_page_widget.dart';
 import 'package:online_library/pages/home_page/home_page_widget.dart';
@@ -21,8 +20,6 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       _selectedPage = index;
     });
   }
-
-  bool _isSearch = false;
 
   bool typing = false;
 
@@ -55,7 +52,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       body: SafeArea(
         child: IndexedStack(
           index: _selectedPage,
-          children: [
+          children: const [
             MainPageWidget(),
             FavoritesPageWidget(),
             ProfilePageWidget(),
@@ -111,17 +108,4 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       ),
     );
   }
-}
-
-Widget _buildSearchField() {
-  return TextField(
-    decoration: const InputDecoration(
-      hintText: 'Search...',
-      border: InputBorder.none,
-    ),
-    autofocus: true,
-    onChanged: (value) {
-      // Perform search operation here
-    },
-  );
 }

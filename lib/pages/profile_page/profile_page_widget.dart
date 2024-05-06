@@ -30,7 +30,7 @@ class ProfilePageWidget extends StatelessWidget {
                       color: AppColors.mainGrey100,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Text('A'),
+                    child: const Text('A'),
                   ),
                   const SizedBox(width: 10),
                   const Expanded(
@@ -61,10 +61,49 @@ class ProfilePageWidget extends StatelessWidget {
           const SizedBox(height: 10),
           //Profile settings
           _SettingsContainerWidget(
+            onTap: () {},
             containerName: 'Ulgamyň dili',
             containerItemValue: 'Turkmen dili',
             containerIcon: Icons.language_rounded,
           ),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Gara tema',
+          //   containerItemValue: 'Öçürlen',
+          //   containerIcon: Icons.dark_mode_rounded,
+          // ),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Çagalar üçin',
+          //   containerItemValue: 'Öçürlen',
+          //   containerIcon: Icons.bedroom_baby_rounded,
+          // ),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Auto ýüklemek',
+          //   containerItemValue: 'Öçürlen',
+          //   containerIcon: Icons.download_rounded,
+          // ),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Diňe Wi-Fi',
+          //   containerItemValue: 'Öçürlen',
+          //   containerIcon: Icons.wifi_rounded,
+          // ),
+          // const SizedBox(height: 5),
+          // const Divider(),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Sorag jogap',
+          //   containerItemValue: '',
+          //   containerIcon: Icons.question_answer_rounded,
+          // ),
+          // const SizedBox(height: 5),
+          // _SettingsContainerWidget(
+          //   containerName: 'Kömek',
+          //   containerItemValue: '',
+          //   containerIcon: Icons.help_center,
+          // ),
         ],
       ),
     );
@@ -72,43 +111,50 @@ class ProfilePageWidget extends StatelessWidget {
 }
 
 class _SettingsContainerWidget extends StatelessWidget {
-  String containerName;
-  String containerItemValue;
-  IconData containerIcon;
-  _SettingsContainerWidget({
+  final String containerName;
+  final String containerItemValue;
+  final IconData containerIcon;
+  final Function onTap;
+  const _SettingsContainerWidget({
     required this.containerName,
     required this.containerItemValue,
+    required this.onTap,
     required this.containerIcon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.mainWhite,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          children: [
-            const SizedBox(width: 5),
-            Icon(
-              containerIcon,
-            ),
-            const SizedBox(width: 5),
-            Expanded(child: Text(containerName)),
-            Container(
-              alignment: Alignment.center,
-              height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.mainGrey100,
+    return GestureDetector(
+      onTap: () {
+        onTap;
+      },
+      child: SizedBox(
+        height: 40,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.mainWhite,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              const SizedBox(width: 5),
+              Icon(
+                containerIcon,
               ),
-              child: Text(containerItemValue),
-            ),
-            const SizedBox(width: 10),
-          ],
+              const SizedBox(width: 5),
+              Expanded(child: Text(containerName)),
+              Container(
+                alignment: Alignment.center,
+                height: 30,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.mainGrey100,
+                ),
+                child: Text(containerItemValue),
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
         ),
       ),
     );

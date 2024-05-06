@@ -5,7 +5,7 @@ import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Books {
-  final id;
+  final int id;
   final String imageName;
   final String title;
   final String bookInfo;
@@ -21,7 +21,7 @@ class Books {
 }
 
 class FavoritesPageWidget extends StatefulWidget {
-  FavoritesPageWidget({super.key});
+  const FavoritesPageWidget({super.key});
 
   @override
   State<FavoritesPageWidget> createState() => _FavoritesPageWidgetState();
@@ -111,10 +111,10 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Text('Sizi gyzylandyrar'),
+          const Text('Sizi gyzylandyrar'),
           const SizedBox(height: 10),
           // Image Carousel start
           SizedBox(
@@ -151,26 +151,26 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
           const SizedBox(height: 10),
           GestureDetector(
             onTap: () {},
-            child: _FavoriteContainerWidget(
+            child: const _FavoriteContainerWidget(
               containerName: 'Halanlarym',
               containerItemCount: '2',
               containerIcon: Icons.favorite_border,
             ),
           ),
           const SizedBox(height: 10),
-          _FavoriteContainerWidget(
+          const _FavoriteContainerWidget(
             containerName: 'Belki soň',
             containerItemCount: '10',
             containerIcon: Icons.access_time,
           ),
           const SizedBox(height: 10),
-          _FavoriteContainerWidget(
+          const _FavoriteContainerWidget(
             containerName: 'Ýüklap alanlarym',
             containerItemCount: '4',
             containerIcon: Icons.file_download_rounded,
           ),
           const SizedBox(height: 10),
-          _FavoriteContainerWidget(
+          const _FavoriteContainerWidget(
             containerName: 'Okanlarym',
             containerItemCount: '5',
             containerIcon: Icons.flag_circle,
@@ -181,12 +181,9 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
     );
   }
 
-  Widget _buildImage(String urlImage, int index) => Container(
-        //margin: const EdgeInsets.symmetric(horizontal: 1),
-        child: Image.asset(
-          urlImage,
-          fit: BoxFit.cover,
-        ),
+  Widget _buildImage(String urlImage, int index) => Image.asset(
+        urlImage,
+        fit: BoxFit.cover,
       );
 
   Widget _buildIndicator() => AnimatedSmoothIndicator(
@@ -203,10 +200,10 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
 }
 
 class _FavoriteContainerWidget extends StatelessWidget {
-  String containerName;
-  String containerItemCount;
-  IconData containerIcon;
-  _FavoriteContainerWidget({
+  final String containerName;
+  final String containerItemCount;
+  final IconData containerIcon;
+  const _FavoriteContainerWidget({
     required this.containerName,
     required this.containerItemCount,
     required this.containerIcon,

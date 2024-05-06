@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainPageWidget extends StatefulWidget {
-  MainPageWidget({super.key});
+  const MainPageWidget({super.key});
 
   @override
   State<MainPageWidget> createState() => _MainPageWidgetState();
@@ -233,14 +232,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     );
   }
 
-  Widget _buildImage(String urlImage, int index) => Container(
-        //margin: const EdgeInsets.symmetric(horizontal: 1),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image.asset(
-            urlImage,
-            fit: BoxFit.cover,
-          ),
+  Widget _buildImage(String urlImage, int index) => ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset(
+          urlImage,
+          fit: BoxFit.cover,
         ),
       );
 

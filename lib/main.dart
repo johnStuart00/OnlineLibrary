@@ -32,7 +32,9 @@ class OnlineLibrary extends StatelessWidget {
           name: '/readAndBuyPage',
           page: () => const ReadAndBuyPage(),
         ),
-        GetPage(name: '/libraryMain/mainDetails', page: () => MainPageWidget()),
+        GetPage(
+            name: '/libraryMain/mainDetails',
+            page: () => const MainPageWidget()),
       ],
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute<void>(builder: (context) {

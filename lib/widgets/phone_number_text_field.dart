@@ -50,7 +50,7 @@ class _PhoneNumberFormatter extends TextInputFormatter {
     var newText = newValue.text;
 
     if (newText.length > 2 && !newText.contains(' ')) {
-      newText = newText.substring(0, 2) + ' ' + newText.substring(2);
+      newText = '${newText.substring(0, 2)} ${newText.substring(2)}';
     }
 
     return newValue.copyWith(
