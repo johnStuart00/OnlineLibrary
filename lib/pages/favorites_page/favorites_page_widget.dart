@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
-import 'package:online_library/widgets/search_box_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Books {
@@ -22,14 +20,14 @@ class Books {
   });
 }
 
-class FavoritesListWidget extends StatefulWidget {
-  FavoritesListWidget({super.key});
+class FavoritesPageWidget extends StatefulWidget {
+  FavoritesPageWidget({super.key});
 
   @override
-  State<FavoritesListWidget> createState() => _FavoritesListWidgetState();
+  State<FavoritesPageWidget> createState() => _FavoritesPageWidgetState();
 }
 
-class _FavoritesListWidgetState extends State<FavoritesListWidget> {
+class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
   final _books = [
     Books(
         id: 1,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:online_library/widgets/favorites_list/favorites_list_widget.dart';
-import 'package:online_library/widgets/home_page_details/home_page_details_widget.dart';
+import 'package:online_library/pages/favorites_page/favorites_page_widget.dart';
+import 'package:online_library/pages/home_page/home_page_widget.dart';
+import 'package:online_library/pages/profile_page/profile_page_widget.dart';
 
 class LibraryMainPage extends StatefulWidget {
   const LibraryMainPage({super.key});
@@ -55,9 +56,9 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
         child: IndexedStack(
           index: _selectedPage,
           children: [
-            MainDatailsWidget(),
-            FavoritesListWidget(),
-            const Text('3'),
+            MainPageWidget(),
+            FavoritesPageWidget(),
+            ProfilePageWidget(),
           ],
         ),
       ),

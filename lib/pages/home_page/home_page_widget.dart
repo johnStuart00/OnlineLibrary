@@ -5,14 +5,14 @@ import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class MainDatailsWidget extends StatefulWidget {
-  MainDatailsWidget({super.key});
+class MainPageWidget extends StatefulWidget {
+  MainPageWidget({super.key});
 
   @override
-  State<MainDatailsWidget> createState() => _MainDatailsWidgetState();
+  State<MainPageWidget> createState() => _MainPageWidgetState();
 }
 
-class _MainDatailsWidgetState extends State<MainDatailsWidget> {
+class _MainPageWidgetState extends State<MainPageWidget> {
   List<String> items = [
     'Bölümler',
     'Hemmesi',
