@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:online_library/pages/favorites_page/favorites_page_widget.dart';
 import 'package:online_library/pages/home_page/home_page_widget.dart';
 import 'package:online_library/pages/profile_page/profile_page_widget.dart';
+import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 
 class LibraryMainPage extends StatefulWidget {
   const LibraryMainPage({super.key});
@@ -26,29 +27,6 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //drawer: const LeftNavBarWidget(),
-      // appBar: AppBar(
-      //   // title:
-      //   //     // _isSearch
-      //   //     //     ? _buildSearchField()
-      //   //     //     :
-      //   //     Text(
-      //   //   AppLocalizations.of(context)!.tagamlySozler,
-      //   // ),
-      //   title: const TextBox(),
-
-      //   centerTitle: true,
-      //   // actions: [
-      //   //   IconButton(
-      //   //     icon: Icon(_isSearch ? Icons.close : Icons.search),
-      //   //     onPressed: () {
-      //   //       setState(() {
-      //   //         _isSearch = !_isSearch;
-      //   //       });
-      //   //     },
-      //   //   ),
-      //   // ],
-      // ),
       body: SafeArea(
         child: IndexedStack(
           index: _selectedPage,
@@ -70,38 +48,42 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
-              rippleColor: Colors.grey, // tab button ripple color when pressed
-              hoverColor: Colors.grey, // tab button hover color
-              //haptic: true, // haptic feedback
+              rippleColor: AppColors.mainColor,
+              hoverColor: AppColors.mainGrey100,
               tabBorderRadius: 25,
               tabShadow: [
                 BoxShadow(color: Theme.of(context).shadowColor, blurRadius: 2)
-              ], // tab button shadow
-              curve: Curves.decelerate, // tab animation curves
-              duration:
-                  const Duration(milliseconds: 400), // tab animation duration
-              gap: 6, // the tab button gap between icon and text
-
-              activeColor: Theme.of(context)
-                  .bottomNavigationBarTheme
-                  .selectedItemColor, // selected icon and text color
-              iconSize: 24, // tab button icon size
-              // selected tab background color
+              ],
+              curve: Curves.decelerate,
+              duration: const Duration(milliseconds: 400),
+              gap: 6,
+              activeColor:
+                  Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+              iconSize: 24,
               padding: const EdgeInsets.all(15),
               selectedIndex: _selectedPage,
               onTabChange: onSelectedPage,
-              tabs: const [
+              tabs: [
                 GButton(
                   icon: Icons.my_library_books_outlined,
                   text: "Sanow",
+                  iconColor: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .unselectedItemColor,
                 ),
                 GButton(
                   icon: Icons.menu_book_sharp,
                   text: "Meniň kitaplarym",
+                  iconColor: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .unselectedItemColor,
                 ),
                 GButton(
                   icon: Icons.person,
                   text: "Agza bol",
+                  iconColor: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .unselectedItemColor,
                 ),
               ]),
         ),

@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -22,6 +24,14 @@ ThemeCharacter? _themeCharacter = ThemeCharacter.acyk;
 enum ForChildCharacter { hawa, yok }
 
 ForChildCharacter? _forChildCharacter = ForChildCharacter.yok;
+
+enum AutoSaveCharacter { hawa, yok }
+
+AutoSaveCharacter? _autoSaveCharacter = AutoSaveCharacter.yok;
+
+enum OnlyWiFiCharacter { hawa, yok }
+
+OnlyWiFiCharacter? _onlyWiFiCharacter = OnlyWiFiCharacter.yok;
 
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   @override
@@ -126,41 +136,66 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
               );
             },
             containerName: 'Çagalar üçin',
-            containerItemValue: 'Öçürlen',
+            containerItemValue: 'Hawa',
             containerIcon: Icons.bedroom_baby_rounded,
           ),
           const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Auto ýüklemek',
-          //   containerItemValue: 'Öçürlen',
-          //   containerIcon: Icons.download_rounded,
-          // ),
-          // const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Diňe Wi-Fi',
-          //   containerItemValue: 'Öçürlen',
-          //   containerIcon: Icons.wifi_rounded,
-          // ),
-          // const SizedBox(height: 5),
-          // const Divider(),
-          // const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Sorag jogap',
-          //   containerItemValue: '',
-          //   containerIcon: Icons.question_answer_rounded,
-          // ),
-          // const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Kömek',
-          //   containerItemValue: '',
-          //   containerIcon: Icons.help_center,
-          // ),
+          _SettingsContainerWidget(
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Temany saýlaň',
+                barrierDismissible: true,
+                content: Column(
+                  children: [
+                    AutoSaveRadioButton(),
+                  ],
+                ),
+              );
+            },
+            containerName: 'Auto ýüklemek',
+            containerItemValue: 'Ýok',
+            containerIcon: Icons.download_rounded,
+          ),
+          const SizedBox(height: 5),
+          _SettingsContainerWidget(
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Temany saýlaň',
+                barrierDismissible: true,
+                content: Column(
+                  children: [
+                    OnlyWiFiRadioButton(),
+                  ],
+                ),
+              );
+            },
+            containerName: 'Diňe Wi-Fi',
+            containerItemValue: 'Ýok',
+            containerIcon: Icons.wifi_rounded,
+          ),
+          const SizedBox(height: 5),
+          const Divider(),
+          const SizedBox(height: 5),
+          _SettingsContainerWidget(
+            onTap: () {},
+            containerName: 'Sorag jogap',
+            containerItemValue: '',
+            containerIcon: Icons.question_answer_rounded,
+          ),
+          const SizedBox(height: 5),
+          _SettingsContainerWidget(
+            onTap: () {},
+            containerName: 'Kömek',
+            containerItemValue: '',
+            containerIcon: Icons.help_center,
+          ),
         ],
       ),
     );
   }
 }
 
+//Settings container widget start
 class _SettingsContainerWidget extends StatelessWidget {
   final String containerName;
   final String containerItemValue;
@@ -175,6 +210,12 @@ class _SettingsContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isEmpty = false;
+    if (containerItemValue.isNotEmpty) {
+      isEmpty = true;
+    } else {
+      isEmpty = false;
+    }
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
@@ -199,7 +240,12 @@ class _SettingsContainerWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColors.mainGrey100,
                 ),
-                child: Text(containerItemValue),
+                child: Padding(
+                  padding: isEmpty
+                      ? const EdgeInsets.symmetric(horizontal: 10, vertical: 1)
+                      : const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  child: Text(containerItemValue),
+                ),
               ),
               const SizedBox(width: 10),
             ],
@@ -210,6 +256,9 @@ class _SettingsContainerWidget extends StatelessWidget {
   }
 }
 
+//Settings container widget end
+
+//Language Radio Button start
 class LanguageRadioButton extends StatefulWidget {
   const LanguageRadioButton({super.key});
 
@@ -265,6 +314,9 @@ class _LanguageRadioButtonState extends State<LanguageRadioButton> {
   }
 }
 
+//Language Radio Button end
+
+//Theme Radio Button start
 class ThemeRadioButton extends StatefulWidget {
   const ThemeRadioButton({super.key});
 
@@ -308,6 +360,9 @@ class _ThemeRadioButtonState extends State<ThemeRadioButton> {
   }
 }
 
+//Theme Radio Button end
+
+//For Children Radio Button start
 class ForChildRadioButton extends StatefulWidget {
   const ForChildRadioButton({super.key});
 
@@ -350,3 +405,95 @@ class _ForChildRadioButtonState extends State<ForChildRadioButton> {
     );
   }
 }
+//For Children Radio Button end
+
+//Auto save Radio Button start
+class AutoSaveRadioButton extends StatefulWidget {
+  const AutoSaveRadioButton({super.key});
+
+  @override
+  State<AutoSaveRadioButton> createState() => _AutoSaveRadioButtonState();
+}
+
+class _AutoSaveRadioButtonState extends State<AutoSaveRadioButton> {
+  AutoSaveCharacter? _AutoSaveCharacter = AutoSaveCharacter.yok;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Hawa'),
+          leading: Radio<AutoSaveCharacter>(
+            value: AutoSaveCharacter.hawa,
+            groupValue: _AutoSaveCharacter,
+            onChanged: (AutoSaveCharacter? value) {
+              setState(() {
+                _AutoSaveCharacter = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Ýok'),
+          leading: Radio<AutoSaveCharacter>(
+            value: AutoSaveCharacter.yok,
+            groupValue: _AutoSaveCharacter,
+            onChanged: (AutoSaveCharacter? value) {
+              setState(() {
+                _AutoSaveCharacter = value;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+//Auto save Radio Button end
+
+//Only WiFi Radio Button start
+
+class OnlyWiFiRadioButton extends StatefulWidget {
+  const OnlyWiFiRadioButton({super.key});
+
+  @override
+  State<OnlyWiFiRadioButton> createState() => _OnlyWiFiRadioButtonState();
+}
+
+class _OnlyWiFiRadioButtonState extends State<OnlyWiFiRadioButton> {
+  OnlyWiFiCharacter? _OnlyWiFiCharacter = OnlyWiFiCharacter.yok;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Hawa'),
+          leading: Radio<OnlyWiFiCharacter>(
+            value: OnlyWiFiCharacter.hawa,
+            groupValue: _OnlyWiFiCharacter,
+            onChanged: (OnlyWiFiCharacter? value) {
+              setState(() {
+                _OnlyWiFiCharacter = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Ýok'),
+          leading: Radio<OnlyWiFiCharacter>(
+            value: OnlyWiFiCharacter.yok,
+            groupValue: _OnlyWiFiCharacter,
+            onChanged: (OnlyWiFiCharacter? value) {
+              setState(() {
+                _OnlyWiFiCharacter = value;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+//Only WiFi Radio Button end
