@@ -5,15 +5,15 @@ import 'package:flutter/services.dart';
 class PhoneNumberTextField extends StatelessWidget {
   const PhoneNumberTextField({
     super.key,
-    required this.userNameController,
+    required this.phoneNumberController,
     required this.label,
   });
 
-  final TextEditingController userNameController;
+  final TextEditingController phoneNumberController;
   final String label;
 
   void textFieldClear() {
-    userNameController.clear();
+    phoneNumberController.clear();
   }
 
   @override
@@ -21,7 +21,7 @@ class PhoneNumberTextField extends StatelessWidget {
     return SizedBox(
       width: 300,
       child: TextField(
-        controller: userNameController,
+        controller: phoneNumberController,
         keyboardType: TextInputType.phone,
         inputFormatters: [
           LengthLimitingTextInputFormatter(9),

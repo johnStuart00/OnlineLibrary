@@ -30,7 +30,7 @@ class _SingUpPageState extends State<SingUpPage> {
                     image: AssetImage('assets/images/tagamly_sozler001.png')),
                 const SizedBox(height: 20),
                 PhoneNumberTextField(
-                  userNameController: phoneNameController,
+                  phoneNumberController: phoneNameController,
                   label: 'Phone number',
                 ),
                 const SizedBox(

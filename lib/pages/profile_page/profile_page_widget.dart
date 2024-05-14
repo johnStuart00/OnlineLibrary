@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -82,7 +80,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
           //Sing in and up button
           StyleButtonWidget(
             buttonName: 'Agza bolmak',
-            onTap: () {},
+            onTap: () {
+              Get.toNamed('/singIn');
+            },
             buttonColor: AppColors.mainColor,
             buttonBorderColor: AppColors.mainColor,
             buttonTextColor: AppColors.mainWhite,

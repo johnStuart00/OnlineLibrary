@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:get/get.dart';
-import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 import '../../../widgets/password_text_field.dart';
 import '../../../widgets/phone_number_text_field.dart';
@@ -18,42 +18,65 @@ class LogInPage extends StatefulWidget {
 }
 
 class _LogInPageState extends State<LogInPage> {
-  final phoneNameController = TextEditingController();
-  final passwordController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+  late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    initSharedPref();
+  }
+
+  void initSharedPref() async {
+    prefs = await SharedPreferences.getInstance();
+  }
 
   Future<void> _login() async {
-    String phoneNumber = phoneNameController.text;
-    String password = passwordController.text;
-
-    // Send a POST request to your backend server
-    var url = Uri.parse('https://your-backend-api.com/login');
-    var response = await http.post(url, body: {
-      'username': phoneNumber,
-      'password': password,
+    setState(() {
+      _isLoading = true;
     });
+    final String phoneNumber =
+        _phoneNumberController.text.trim().replaceAll(' ', '');
+    final String password = _passwordController.text.trim();
 
-    if (response.statusCode == 200) {
-      // Successful login
-      Get.toNamed('/libraryMain');
-    } else {
-      // Failed login
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Login Failed"),
-            content: Text("Invalid username or password"),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text("OK"),
-              ),
-            ],
-          );
+    final url = 'http://127.0.0.1:8000/login/'; // Replace with your backend URL
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
         },
+        body: jsonEncode(<String, String>{
+          'phone_number': '993' + phoneNumber,
+          'password': password,
+        }),
       );
+
+      if (response.statusCode == 200) {
+        // Successfully logged  in
+        // Navigate to next screen or do whatever you need
+        final responseData = jsonDecode(response.body);
+        var refresh = responseData['refresh'];
+        var access = responseData['access'];
+        prefs.setString('refresh', refresh);
+        prefs.setString('access', access);
+        print(refresh);
+        print(access);
+      } else {
+        // Handle error
+        // You can show error message to the user
+        print('Failed to login: ${response.body}');
+      }
+    } catch (e) {
+      // Handle network error
+      print('Network error: $e');
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -72,11 +95,11 @@ class _LogInPageState extends State<LogInPage> {
                   image: AssetImage('assets/images/tagamly_sozler001.png')),
               const SizedBox(height: 30),
               PhoneNumberTextField(
-                userNameController: phoneNameController,
+                phoneNumberController: _phoneNumberController,
                 label: 'Phone number',
               ),
               const SizedBox(height: 10),
-              PasswordTextField(passwordController: passwordController),
+              PasswordTextField(passwordController: _passwordController),
               const SizedBox(height: 30),
               StyleButtonWidget(
                 buttonColor: AppColors.mainColor,
@@ -84,13 +107,7 @@ class _LogInPageState extends State<LogInPage> {
                 buttonTextColor: AppColors.mainWhite,
                 buttonName: AppLocalizations.of(context)!.logIn,
                 onTap: () {
-                  if (phoneNameController.text == "65 656565" &&
-                      passwordController.text == "123") {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LibraryMainPage()));
-                  }
+                  _login();
                 },
               ),
               const SizedBox(height: 20),

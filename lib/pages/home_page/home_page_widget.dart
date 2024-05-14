@@ -115,12 +115,111 @@ class _MainPageWidgetState extends State<MainPageWidget> {
             //Categories box end
             const SizedBox(height: 10),
             //MAIN BODY Start,
-            Container(
-                width: double.infinity,
-                height: 500,
-                child: Column(
-                  children: [],
-                ))
+            // Image Carousel start
+            SizedBox(
+              child: Column(
+                children: [
+                  CarouselSlider.builder(
+                    itemCount: urlImages.length,
+                    options: CarouselOptions(
+                        initialPage: 0,
+                        height: 200.0,
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 2),
+                        enlargeCenterPage: true,
+                        enableInfiniteScroll: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            activeIndex = index;
+                          });
+                        }),
+                    itemBuilder: (
+                      context,
+                      index,
+                      realIndex,
+                    ) {
+                      final urlImage = urlImages[index];
+                      return _buildImage(urlImage, index);
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  _buildIndicator(),
+                ],
+              ),
+            ),
+            // Image Carousel end
+            const SizedBox(height: 5),
+            const Padding(
+              padding: EdgeInsets.only(left: 30),
+              child: Text('The Best'),
+            ),
+            SizedBox(
+              height: 320,
+              width: double.infinity,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (contx, index) {
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Container(
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).shadowColor,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    bottomLeft: Radius.circular(30),
+                                    bottomRight: Radius.circular(30)),
+                                child: Image.asset(
+                                  'assets/images/tagamly_sozler001.png',
+                                  width: 300,
+                                  height: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text('Book Name',
+                                  style:
+                                      Theme.of(context).textTheme.titleLarge),
+                              const SizedBox(height: 5),
+                              Text(
+                                'Author Name',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 30),
+              child: Text('New'),
+            ),
+            const SizedBox(height: 5),
           ],
         ),
       ),
@@ -147,109 +246,3 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         ),
       );
 }
-
-// // Image Carousel start
-//             SizedBox(
-//               child: Column(
-//                 children: [
-//                   CarouselSlider.builder(
-//                     itemCount: urlImages.length,
-//                     options: CarouselOptions(
-//                         initialPage: 0,
-//                         height: 200.0,
-//                         autoPlay: true,
-//                         autoPlayInterval: const Duration(seconds: 2),
-//                         enlargeCenterPage: true,
-//                         enableInfiniteScroll: true,
-//                         onPageChanged: (index, reason) {
-//                           setState(() {
-//                             activeIndex = index;
-//                           });
-//                         }),
-//                     itemBuilder: (
-//                       context,
-//                       index,
-//                       realIndex,
-//                     ) {
-//                       final urlImage = urlImages[index];
-//                       return _buildImage(urlImage, index);
-//                     },
-//                   ),
-//                   const SizedBox(height: 10),
-//                   _buildIndicator(),
-//                 ],
-//               ),
-//             ),
-//             // Image Carousel end
-//             const SizedBox(height: 5),
-//             const Padding(
-//               padding: EdgeInsets.only(left: 30),
-//               child: Text('The Best'),
-//             ),
-//             SizedBox(
-//               height: 320,
-//               width: double.infinity,
-//               child: ListView.builder(
-//                 physics: const BouncingScrollPhysics(),
-//                 scrollDirection: Axis.horizontal,
-//                 itemCount: 10,
-//                 itemBuilder: (contx, index) {
-//                   return Column(
-//                     children: [
-//                       Padding(
-//                         padding: const EdgeInsets.all(18.0),
-//                         child: Container(
-//                           width: 200,
-//                           decoration: BoxDecoration(
-//                             color: Colors.white,
-//                             borderRadius: BorderRadius.circular(30),
-//                             boxShadow: [
-//                               BoxShadow(
-//                                 color: Theme.of(context).shadowColor,
-//                                 spreadRadius: 5,
-//                                 blurRadius: 7,
-//                                 offset: const Offset(0, 3),
-//                               ),
-//                             ],
-//                           ),
-//                           child: Column(
-//                             crossAxisAlignment: CrossAxisAlignment.start,
-//                             children: [
-//                               ClipRRect(
-//                                 borderRadius: const BorderRadius.only(
-//                                     topLeft: Radius.circular(30),
-//                                     topRight: Radius.circular(30),
-//                                     bottomLeft: Radius.circular(30),
-//                                     bottomRight: Radius.circular(30)),
-//                                 child: Image.asset(
-//                                   'assets/images/tagamly_sozler001.png',
-//                                   width: 300,
-//                                   height: 200,
-//                                   fit: BoxFit.cover,
-//                                 ),
-//                               ),
-//                               const SizedBox(height: 10),
-//                               Text('Book Name',
-//                                   style:
-//                                       Theme.of(context).textTheme.titleLarge),
-//                               const SizedBox(height: 5),
-//                               Text(
-//                                 'Author Name',
-//                                 style: Theme.of(context).textTheme.titleMedium,
-//                               ),
-//                               const SizedBox(height: 10),
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   );
-//                 },
-//               ),
-//             ),
-//             const SizedBox(height: 20),
-//             const Padding(
-//               padding: EdgeInsets.only(left: 30),
-//               child: Text('New'),
-//             ),
-//             const SizedBox(height: 5),
