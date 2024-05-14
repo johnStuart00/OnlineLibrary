@@ -11,13 +11,17 @@ class ProfilePageWidget extends StatefulWidget {
   State<ProfilePageWidget> createState() => _ProfilePageWidgetState();
 }
 
-enum SingingCharacter { tkm, rus, eng }
+enum LanguageCharacter { tkm, rus, eng }
 
-SingingCharacter? _character = SingingCharacter.tkm;
+LanguageCharacter? _character = LanguageCharacter.tkm;
 
 enum ThemeCharacter { acyk, gara }
 
 ThemeCharacter? _themeCharacter = ThemeCharacter.acyk;
+
+enum ForChildCharacter { hawa, yok }
+
+ForChildCharacter? _forChildCharacter = ForChildCharacter.yok;
 
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   @override
@@ -108,13 +112,24 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             containerItemValue: 'Öçürlen',
             containerIcon: Icons.dark_mode_rounded,
           ),
-          // const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Çagalar üçin',
-          //   containerItemValue: 'Öçürlen',
-          //   containerIcon: Icons.bedroom_baby_rounded,
-          // ),
-          // const SizedBox(height: 5),
+          const SizedBox(height: 5),
+          _SettingsContainerWidget(
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Temany saýlaň',
+                barrierDismissible: true,
+                content: Column(
+                  children: [
+                    ForChildRadioButton(),
+                  ],
+                ),
+              );
+            },
+            containerName: 'Çagalar üçin',
+            containerItemValue: 'Öçürlen',
+            containerIcon: Icons.bedroom_baby_rounded,
+          ),
+          const SizedBox(height: 5),
           // _SettingsContainerWidget(
           //   containerName: 'Auto ýüklemek',
           //   containerItemValue: 'Öçürlen',
@@ -203,7 +218,7 @@ class LanguageRadioButton extends StatefulWidget {
 }
 
 class _LanguageRadioButtonState extends State<LanguageRadioButton> {
-  SingingCharacter? _character = SingingCharacter.tkm;
+  LanguageCharacter? _character = LanguageCharacter.tkm;
 
   @override
   Widget build(BuildContext context) {
@@ -211,10 +226,10 @@ class _LanguageRadioButtonState extends State<LanguageRadioButton> {
       children: <Widget>[
         ListTile(
           title: const Text('Türkmen dili'),
-          leading: Radio<SingingCharacter>(
-            value: SingingCharacter.tkm,
+          leading: Radio<LanguageCharacter>(
+            value: LanguageCharacter.tkm,
             groupValue: _character,
-            onChanged: (SingingCharacter? value) {
+            onChanged: (LanguageCharacter? value) {
               setState(() {
                 _character = value;
               });
@@ -223,10 +238,10 @@ class _LanguageRadioButtonState extends State<LanguageRadioButton> {
         ),
         ListTile(
           title: const Text('Rus dili'),
-          leading: Radio<SingingCharacter>(
-            value: SingingCharacter.rus,
+          leading: Radio<LanguageCharacter>(
+            value: LanguageCharacter.rus,
             groupValue: _character,
-            onChanged: (SingingCharacter? value) {
+            onChanged: (LanguageCharacter? value) {
               setState(() {
                 _character = value;
               });
@@ -235,10 +250,10 @@ class _LanguageRadioButtonState extends State<LanguageRadioButton> {
         ),
         ListTile(
           title: const Text('Iňlis dili'),
-          leading: Radio<SingingCharacter>(
-            value: SingingCharacter.eng,
+          leading: Radio<LanguageCharacter>(
+            value: LanguageCharacter.eng,
             groupValue: _character,
-            onChanged: (SingingCharacter? value) {
+            onChanged: (LanguageCharacter? value) {
               setState(() {
                 _character = value;
               });
@@ -284,6 +299,49 @@ class _ThemeRadioButtonState extends State<ThemeRadioButton> {
             onChanged: (ThemeCharacter? value) {
               setState(() {
                 _ThemeCharacter = value;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ForChildRadioButton extends StatefulWidget {
+  const ForChildRadioButton({super.key});
+
+  @override
+  State<ForChildRadioButton> createState() => _ForChildRadioButtonState();
+}
+
+class _ForChildRadioButtonState extends State<ForChildRadioButton> {
+  ForChildCharacter? _ForChildCharacter = ForChildCharacter.yok;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Ýok'),
+          leading: Radio<ForChildCharacter>(
+            value: ForChildCharacter.yok,
+            groupValue: _ForChildCharacter,
+            onChanged: (ForChildCharacter? value) {
+              setState(() {
+                _ForChildCharacter = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Hawa'),
+          leading: Radio<ForChildCharacter>(
+            value: ForChildCharacter.hawa,
+            groupValue: _ForChildCharacter,
+            onChanged: (ForChildCharacter? value) {
+              setState(() {
+                _ForChildCharacter = value;
               });
             },
           ),
