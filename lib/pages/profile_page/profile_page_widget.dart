@@ -15,6 +15,10 @@ enum SingingCharacter { tkm, rus, eng }
 
 SingingCharacter? _character = SingingCharacter.tkm;
 
+enum ThemeCharacter { acyk, gara }
+
+ThemeCharacter? _themeCharacter = ThemeCharacter.acyk;
+
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   @override
   Widget build(BuildContext context) {
@@ -87,12 +91,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             containerItemValue: 'Turkmen dili',
             containerIcon: Icons.language_rounded,
           ),
-          // const SizedBox(height: 5),
-          // _SettingsContainerWidget(
-          //   containerName: 'Gara tema',
-          //   containerItemValue: 'Öçürlen',
-          //   containerIcon: Icons.dark_mode_rounded,
-          // ),
+          const SizedBox(height: 5),
+          _SettingsContainerWidget(
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Temenay saýlaň',
+                barrierDismissible: true,
+                content: Column(
+                  children: [
+                    ThemeRadioButton(),
+                  ],
+                ),
+              );
+            },
+            containerName: 'Gara tema',
+            containerItemValue: 'Öçürlen',
+            containerIcon: Icons.dark_mode_rounded,
+          ),
           // const SizedBox(height: 5),
           // _SettingsContainerWidget(
           //   containerName: 'Çagalar üçin',
@@ -226,6 +241,49 @@ class _LanguageRadioButtonState extends State<LanguageRadioButton> {
             onChanged: (SingingCharacter? value) {
               setState(() {
                 _character = value;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ThemeRadioButton extends StatefulWidget {
+  const ThemeRadioButton({super.key});
+
+  @override
+  State<ThemeRadioButton> createState() => _ThemeRadioButtonState();
+}
+
+class _ThemeRadioButtonState extends State<ThemeRadioButton> {
+  ThemeCharacter? _ThemeCharacter = ThemeCharacter.acyk;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Açyk tema'),
+          leading: Radio<ThemeCharacter>(
+            value: ThemeCharacter.acyk,
+            groupValue: _ThemeCharacter,
+            onChanged: (ThemeCharacter? value) {
+              setState(() {
+                _ThemeCharacter = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Gara tema'),
+          leading: Radio<ThemeCharacter>(
+            value: ThemeCharacter.gara,
+            groupValue: _ThemeCharacter,
+            onChanged: (ThemeCharacter? value) {
+              setState(() {
+                _ThemeCharacter = value;
               });
             },
           ),

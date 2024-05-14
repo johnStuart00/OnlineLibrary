@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../widgets/password_text_field.dart';
 import '../../../widgets/phone_number_text_field.dart';
@@ -18,6 +20,42 @@ class LogInPage extends StatefulWidget {
 class _LogInPageState extends State<LogInPage> {
   final phoneNameController = TextEditingController();
   final passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    String phoneNumber = phoneNameController.text;
+    String password = passwordController.text;
+
+    // Send a POST request to your backend server
+    var url = Uri.parse('https://your-backend-api.com/login');
+    var response = await http.post(url, body: {
+      'username': phoneNumber,
+      'password': password,
+    });
+
+    if (response.statusCode == 200) {
+      // Successful login
+      Get.toNamed('/libraryMain');
+    } else {
+      // Failed login
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Login Failed"),
+            content: Text("Invalid username or password"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("OK"),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
