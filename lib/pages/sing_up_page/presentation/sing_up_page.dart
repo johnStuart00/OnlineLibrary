@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:online_library/pages/otp/presentation/otp.dart';
 import 'package:online_library/pages/sing_in_page/presentation/login_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/phone_number_text_field.dart';
@@ -45,7 +46,7 @@ class _SingUpPageState extends State<SingUpPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LogInPage()));
+                            builder: (context) => const GetTokenPage()));
                   },
                 ),
                 const SizedBox(height: 20),

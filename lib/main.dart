@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
+import 'package:online_library/pages/otp/presentation/otp.dart';
 import 'package:online_library/pages/read_and_buy_page/presentation/read_and_buy_page.dart';
 import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/pages/welcome_page/presentation/welcome_page.dart';
@@ -30,13 +31,11 @@ class OnlineLibrary extends StatelessWidget {
         GetPage(name: '/singIn', page: () => const LogInPage()),
         GetPage(name: '/singUp', page: () => const SingUpPage()),
         GetPage(name: '/libraryMain', page: () => const LibraryMainPage()),
-        GetPage(
-          name: '/readAndBuyPage',
-          page: () => const ReadAndBuyPage(),
-        ),
+        GetPage(name: '/readAndBuyPage', page: () => const ReadAndBuyPage()),
         GetPage(
             name: '/libraryMain/mainDetails',
             page: () => const MainPageWidget()),
+        GetPage(name: '/get-token-page', page: () => const GetTokenPage())
       ],
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute<void>(builder: (context) {
