@@ -24,13 +24,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
 
   List<Widget> icons = [];
 
-  final urlImages = [
-    'assets/images/carousel_images/9f0bbe386a.jpg',
-    'assets/images/carousel_images/346824345923811.webp',
-    'assets/images/carousel_images/b94740f80df563fa7443f481b3f7fab1.png',
-    'assets/images/carousel_images/f79beacdef1ab0dc3d00e6c02542d89a.jpg',
-    'assets/images/carousel_images/image-1.jpg',
-  ];
   int activeIndex = 0;
 
   int current = 1;
@@ -48,11 +41,39 @@ class _MainPageWidgetState extends State<MainPageWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //Hi to User part start
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hello, John',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'What do you want to read today?',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            //Hi to User part end
+            const SizedBox(height: 10),
             //Search box start
             SearchBoxWidget(
               searchController: _searchController,
             ),
             //Search box end
+            const SizedBox(height: 10),
             //Categories box start
             SizedBox(
               height: 60,
@@ -115,39 +136,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
             //Categories box end
             const SizedBox(height: 10),
             //MAIN BODY Start,
-            // Image Carousel start
-            SizedBox(
-              child: Column(
-                children: [
-                  CarouselSlider.builder(
-                    itemCount: urlImages.length,
-                    options: CarouselOptions(
-                        initialPage: 0,
-                        height: 200.0,
-                        autoPlay: true,
-                        autoPlayInterval: const Duration(seconds: 2),
-                        enlargeCenterPage: true,
-                        enableInfiniteScroll: true,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            activeIndex = index;
-                          });
-                        }),
-                    itemBuilder: (
-                      context,
-                      index,
-                      realIndex,
-                    ) {
-                      final urlImage = urlImages[index];
-                      return _buildImage(urlImage, index);
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  _buildIndicator(),
-                ],
-              ),
-            ),
-            // Image Carousel end
             const SizedBox(height: 5),
             const Padding(
               padding: EdgeInsets.only(left: 30),
@@ -231,18 +219,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         child: Image.asset(
           urlImage,
           fit: BoxFit.cover,
-        ),
-      );
-
-  Widget _buildIndicator() => AnimatedSmoothIndicator(
-        activeIndex: activeIndex,
-        count: urlImages.length,
-        effect: ExpandingDotsEffect(
-          activeDotColor: AppColors.mainColor,
-          radius: 8,
-          spacing: 10,
-          dotHeight: 9,
-          dotWidth: 9,
         ),
       );
 }

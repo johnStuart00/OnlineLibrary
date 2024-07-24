@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:online_library/pages/favorites_page/favorites_page_widget.dart';
+import 'package:online_library/pages/own_books/own_books_page.dart';
 import 'package:online_library/pages/home_page/home_page_widget.dart';
 import 'package:online_library/pages/profile_page/profile_page_widget.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
@@ -27,6 +27,24 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_rounded),
+          ),
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              color: AppColors.mainColor,
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
+          SizedBox(width: 10)
+        ],
+      ),
       body: SafeArea(
         child: IndexedStack(
           index: _selectedPage,

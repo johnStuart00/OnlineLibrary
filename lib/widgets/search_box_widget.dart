@@ -24,12 +24,32 @@ class _SearchBoxWidgetState extends State<SearchBoxWidget> {
         child: TextField(
           controller: widget.searchController,
           decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: "Search",
-              prefixIcon: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.search),
-              )),
+            border: InputBorder.none,
+            hintText: "Search",
+            prefixIcon: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+            ),
+            suffix: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.keyboard_voice_outlined,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.sort),
+                ),
+              ],
+            ),
+            // suffixIcon: IconButton(
+            //   onPressed: () {},
+            //   icon: const Icon(Icons.keyboard_voice_rounded),
+            // ),
+          ),
         ),
       ),
     );

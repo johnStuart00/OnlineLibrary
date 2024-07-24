@@ -69,16 +69,16 @@ class OnlineLibrary extends StatelessWidget {
             decorationColor: AppColors.mainColor),
         shadowColor: Colors.grey.withOpacity(0.2),
         appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.mainColor,
+          backgroundColor: AppColors.mainWhite,
           iconTheme: IconThemeData(
-            color: AppColors.mainWhite,
+            color: AppColors.mainColor,
           ),
           elevation: 2.0,
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: AppColors.mainColor,
-          selectedItemColor: AppColors.mainColorWhite,
-          unselectedItemColor: AppColors.mainColorWhite,
+          backgroundColor: AppColors.mainWhite,
+          selectedItemColor: AppColors.mainColor,
+          unselectedItemColor: AppColors.mainColor,
         ),
         tabBarTheme: TabBarTheme(
             labelColor: AppColors.mainColor,
