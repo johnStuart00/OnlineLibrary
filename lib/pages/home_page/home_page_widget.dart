@@ -1,6 +1,8 @@
 //import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:online_library/pages/read_and_buy_page/presentation/read_and_buy_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
+import 'package:online_library/widgets/book_widget.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -151,7 +153,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                 itemBuilder: (contx, index) {
                   return Column(
                     children: [
-                      BookWidget(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ReadAndBuyPage(),),);
+                        },
+                        child: const BookWidget()),
                     ],
                   );
                 },
