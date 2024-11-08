@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
@@ -42,8 +42,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Hi to User part start
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
+            const Padding(
+              padding: EdgeInsets.only(left: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -151,52 +151,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                 itemBuilder: (contx, index) {
                   return Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Container(
-                          width: 200,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Theme.of(context).shadowColor,
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(30),
-                                    topRight: Radius.circular(30),
-                                    bottomLeft: Radius.circular(30),
-                                    bottomRight: Radius.circular(30)),
-                                child: Image.asset(
-                                  'assets/images/tagamly_sozler001.png',
-                                  width: 300,
-                                  height: 200,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Text('Book Name',
-                                  style:
-                                      Theme.of(context).textTheme.titleLarge),
-                              const SizedBox(height: 5),
-                              Text(
-                                'Author Name',
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              const SizedBox(height: 10),
-                            ],
-                          ),
-                        ),
-                      ),
+                      BookWidget(),
                     ],
                   );
                 },
@@ -222,3 +177,4 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         ),
       );
 }
+

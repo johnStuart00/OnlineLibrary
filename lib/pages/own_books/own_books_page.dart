@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
@@ -117,36 +117,36 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
           const Text('Sizi gyzylandyrar'),
           const SizedBox(height: 10),
           // Image Carousel start
-          SizedBox(
-            child: Column(
-              children: [
-                CarouselSlider.builder(
-                  itemCount: urlImages.length,
-                  options: CarouselOptions(
-                      initialPage: 0,
-                      height: 200.0,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 2),
-                      enableInfiniteScroll: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          activeIndex = index;
-                        });
-                      }),
-                  itemBuilder: (
-                    context,
-                    index,
-                    realIndex,
-                  ) {
-                    final urlImage = urlImages[index];
-                    return _buildImage(urlImage, index);
-                  },
-                ),
-                const SizedBox(height: 10),
-                _buildIndicator(),
-              ],
-            ),
-          ),
+          // SizedBox(
+          //   child: Column(
+          //     children: [
+          //       CarouselSlider.builder(
+          //         itemCount: urlImages.length,
+          //         options: CarouselOptions(
+          //             initialPage: 0,
+          //             height: 200.0,
+          //             autoPlay: true,
+          //             autoPlayInterval: const Duration(seconds: 2),
+          //             enableInfiniteScroll: true,
+          //             onPageChanged: (index, reason) {
+          //               setState(() {
+          //                 activeIndex = index;
+          //               });
+          //             }),
+          //         itemBuilder: (
+          //           context,
+          //           index,
+          //           realIndex,
+          //         ) {
+          //           final urlImage = urlImages[index];
+          //           return _buildImage(urlImage, index);
+          //         },
+          //       ),
+          //       const SizedBox(height: 10),
+          //       _buildIndicator(),
+          //     ],
+          //   ),
+          // ),
           // Image Carousel end
           const SizedBox(height: 10),
           GestureDetector(
