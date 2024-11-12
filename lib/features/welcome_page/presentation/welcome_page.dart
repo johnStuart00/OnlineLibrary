@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:online_library/pages/sing_in_page/presentation/login_page.dart';
-import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
+import 'package:online_library/features/sing_in_page/presentation/login_page.dart';
+import 'package:online_library/features/sing_up_page/presentation/sing_up_page.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
 class WelcomePage extends StatefulWidget {

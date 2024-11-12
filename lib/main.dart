@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_library/pages/library_main_page/presentation/library_main_page.dart';
-import 'package:online_library/pages/otp/presentation/otp.dart';
-import 'package:online_library/pages/read_and_buy_page/presentation/read_and_buy_page.dart';
-import 'package:online_library/pages/sing_up_page/presentation/sing_up_page.dart';
-import 'package:online_library/pages/welcome_page/presentation/welcome_page.dart';
+import 'package:online_library/features/library_main_page/presentation/library_main_page.dart';
+import 'package:online_library/features/otp/presentation/otp.dart';
+import 'package:online_library/features/read_and_buy_page/presentation/read_and_buy_page.dart';
+import 'package:online_library/features/sing_up_page/presentation/sing_up_page.dart';
+import 'package:online_library/features/welcome_page/presentation/welcome_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:online_library/pages/home_page/home_page_widget.dart';
+import 'package:online_library/features/home_page/presentation/pages/home_page_widget.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
-import 'pages/sing_in_page/presentation/login_page.dart';
+import 'features/sing_in_page/presentation/login_page.dart';
 
 void main() {
   runApp(const OnlineLibrary());

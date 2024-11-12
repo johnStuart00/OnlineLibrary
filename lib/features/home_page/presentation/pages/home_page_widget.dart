@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_library/pages/read_and_buy_page/presentation/read_and_buy_page.dart';
+import 'package:online_library/features/read_and_buy_page/presentation/read_and_buy_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/book_widget.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
