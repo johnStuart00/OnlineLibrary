@@ -28,8 +28,8 @@ class OnlineLibrary extends StatelessWidget {
       initialRoute: '/libraryMain',
       getPages: [
         GetPage(name: '/welcome', page: () => const WelcomePage()),
-        GetPage(name: '/singIn', page: () => const LogInPage()),
-        GetPage(name: '/singUp', page: () => const SingUpPage()),
+        // GetPage(name: '/singIn', page: () => const LogInPage()),
+        // GetPage(name: '/singUp', page: () => const SingUpPage()),
         GetPage(name: '/libraryMain', page: () => const LibraryMainPage()),
         GetPage(name: '/readAndBuyPage', page: () => const ReadAndBuyPage()),
         GetPage(

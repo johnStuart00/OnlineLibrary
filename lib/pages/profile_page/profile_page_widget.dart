@@ -81,7 +81,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
           StyleButtonWidget(
             buttonName: 'Agza bolmak',
             onTap: () {
-              Get.toNamed('/singIn');
+              // Get.toNamed('/singIn');
             },
             buttonColor: AppColors.mainColor,
             buttonBorderColor: AppColors.mainColor,

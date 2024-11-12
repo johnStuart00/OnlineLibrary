@@ -1,4 +1,5 @@
 //import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
@@ -114,39 +115,39 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          const Text('Sizi gyzylandyrar'),
+          const Text('Sizi gyzyklandyrar'),
           const SizedBox(height: 10),
           // Image Carousel start
-          // SizedBox(
-          //   child: Column(
-          //     children: [
-          //       CarouselSlider.builder(
-          //         itemCount: urlImages.length,
-          //         options: CarouselOptions(
-          //             initialPage: 0,
-          //             height: 200.0,
-          //             autoPlay: true,
-          //             autoPlayInterval: const Duration(seconds: 2),
-          //             enableInfiniteScroll: true,
-          //             onPageChanged: (index, reason) {
-          //               setState(() {
-          //                 activeIndex = index;
-          //               });
-          //             }),
-          //         itemBuilder: (
-          //           context,
-          //           index,
-          //           realIndex,
-          //         ) {
-          //           final urlImage = urlImages[index];
-          //           return _buildImage(urlImage, index);
-          //         },
-          //       ),
-          //       const SizedBox(height: 10),
-          //       _buildIndicator(),
-          //     ],
-          //   ),
-          // ),
+          SizedBox(
+            child: Column(
+              children: [
+                CarouselSlider.builder(
+                  itemCount: urlImages.length,
+                  options: CarouselOptions(
+                      initialPage: 0,
+                      height: 200.0,
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 2),
+                      enableInfiniteScroll: true,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          activeIndex = index;
+                        });
+                      }),
+                  itemBuilder: (
+                    context,
+                    index,
+                    realIndex,
+                  ) {
+                    final urlImage = urlImages[index];
+                    return _buildImage(urlImage, index);
+                  },
+                ),
+                const SizedBox(height: 10),
+                _buildIndicator(),
+              ],
+            ),
+          ),
           // Image Carousel end
           const SizedBox(height: 10),
           GestureDetector(
@@ -242,86 +243,3 @@ class _FavoriteContainerWidget extends StatelessWidget {
     );
   }
 }
-
-// Old version
-// Stack(
-//       children: [
-//         ListView.builder(
-//             physics: const BouncingScrollPhysics(),
-//             padding: const EdgeInsets.only(top: 70),
-//             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-//             itemCount: _filteredBooks.length,
-//             itemExtent: 163,
-//             itemBuilder: (BuildContext context, int index) {
-//               final book = _filteredBooks[index];
-//               return Padding(
-//                 padding:
-//                     const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-//                 child: Stack(
-//                   children: [
-//                     Container(
-//                       clipBehavior: Clip.hardEdge,
-//                       decoration: BoxDecoration(
-//                           color: Colors.white,
-//                           border: Border.all(
-//                             color: Colors.black.withOpacity(0.2),
-//                           ),
-//                           borderRadius:
-//                               const BorderRadius.all(Radius.circular(10)),
-//                           boxShadow: [
-//                             BoxShadow(
-//                               color: Colors.black.withOpacity(0.1),
-//                               blurRadius: 1,
-//                               offset: const Offset(0, 2),
-//                             ),
-//                           ]),
-//                       child: Row(
-//                         children: [
-//                           Image.asset(book.imageName),
-//                           Expanded(
-//                             child: Column(
-//                               crossAxisAlignment: CrossAxisAlignment.start,
-//                               children: [
-//                                 Text(
-//                                   book.title,
-//                                   maxLines: 1,
-//                                   overflow: TextOverflow.ellipsis,
-//                                 ),
-//                                 const SizedBox(height: 20),
-//                                 Text(
-//                                   book.bookInfo,
-//                                   maxLines: 1,
-//                                   overflow: TextOverflow.ellipsis,
-//                                 ),
-//                                 const SizedBox(height: 20),
-//                                 Text(
-//                                   book.description,
-//                                   maxLines: 2,
-//                                   overflow: TextOverflow.ellipsis,
-//                                 ),
-//                                 const SizedBox(height: 20),
-//                               ],
-//                             ),
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                     Material(
-//                       color: Colors.transparent,
-//                       child: InkWell(
-//                         borderRadius: BorderRadius.circular(10),
-//                         onTap: () => _onBookTap(index),
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               );
-//             }),
-//         Padding(
-//           padding: const EdgeInsets.all(10.0),
-//           child: SearchBoxWidget(
-//             searchController: _searchController,
-//           ),
-//         ),
-//       ],
-//     );
