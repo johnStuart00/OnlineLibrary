@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_library/features/read_and_buy_page/presentation/read_and_buy_page.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
-import 'package:online_library/widgets/book_widget.dart';
+import 'package:online_library/features/home_page/widgets/all_books_widget.dart';
 import 'package:online_library/widgets/search_box_widget.dart';
+import 'package:online_library/features/home_page/widgets/section_widget.dart';
 
 class MainPageWidget extends StatefulWidget {
   const MainPageWidget({super.key});
@@ -13,13 +13,8 @@ class MainPageWidget extends StatefulWidget {
 
 class _MainPageWidgetState extends State<MainPageWidget> {
   List<String> items = [
-    'Bölümler',
-    'Hemmesi',
-    'Novel',
-    'Self-love',
-    'Science',
-    'Romance',
-    'Old-books'
+    'Section',
+    'All Books',
   ];
 
   final _searchController = TextEditingController();
@@ -86,48 +81,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         ),
         body: TabBarView(
           children: items.map((category) {
-            return _buildCategoryContent(category);
+            return _getCategoryContent(category);
           }).toList(),
         ),
       ),
     );
   }
-
-  Widget _buildCategoryContent(String category) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(left: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 10),
-          Text(
-            category == 'Hemmesi' ? 'The Best' : '$category Books',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 5),
-          SizedBox(
-            height: 320,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ReadAndBuyPage(),
-                      ),
-                    );
-                  },
-                  child: const BookWidget(),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
+Widget _getCategoryContent(String category) {
+    switch (category) {
+      case 'Bölümler':
+        return const SectionsWidget();
+      case 'Hemmesi':
+      default:
+        return const AllBooksWidget();
+    }
   }
 }
