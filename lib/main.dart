@@ -7,7 +7,7 @@ import 'package:online_library/features/read_and_buy_page/presentation/read_and_
 import 'package:online_library/features/welcome_page/presentation/welcome_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:online_library/features/home_page/presentation/pages/home_page_widget.dart';
-import 'package:online_library/tools/colors/theme/app_theme.dart';
+import 'package:online_library/tools/theme/app_theme.dart';
 
 void main() async {
   final savedThemeMode = await AdaptiveTheme.getThemeMode();

@@ -22,16 +22,17 @@ class _BookWidgetState extends State<BookWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
         width: 200,
         decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).shadowColor,
-              spreadRadius: 5,
-              blurRadius: 7,
+              color: Theme.of(context).dividerColor,
+              spreadRadius: 2,
+              blurRadius: 10,
               offset: const Offset(0, 3),
             ),
           ],
@@ -58,6 +59,7 @@ class _BookWidgetState extends State<BookWidget> {
                         duration: const Duration(milliseconds: 100),
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: Theme.of(context).highlightColor,
                           key: ValueKey<bool>(isFavorite),
                           size: 30.0,
                         ),
@@ -68,7 +70,7 @@ class _BookWidgetState extends State<BookWidget> {
             ),
             const SizedBox(height: 10),
             const Padding(
-              padding: EdgeInsets.only(left: 5.0),
+              padding: EdgeInsets.only(left: 8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,

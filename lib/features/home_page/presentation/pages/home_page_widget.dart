@@ -49,7 +49,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(60.0),
+            preferredSize: const Size.fromHeight(50.0),
             child: TabBar(
               dividerHeight: 0.0,
               isScrollable: true,
@@ -58,7 +58,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: AppColors.mainColor,
+                  color: AppColors.mainWhite,
                   width: 2,
                 ),
               ),
@@ -91,9 +91,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
 
   Widget _getCategoryContent(String category) {
     switch (category) {
-      case 'Bölümler':
+      case 'Section':
         return const SectionsWidget();
-      case 'Hemmesi':
+      case 'All Books':
       default:
         return const AllBooksWidget();
     }

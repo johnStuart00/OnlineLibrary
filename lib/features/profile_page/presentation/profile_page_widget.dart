@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_library/features/profile_page/widgets/auto_save_radiobutton_widget.dart';
@@ -5,8 +6,6 @@ import 'package:online_library/features/profile_page/widgets/for_children_radiob
 import 'package:online_library/features/profile_page/widgets/language_radiobutton_widget.dart';
 import 'package:online_library/features/profile_page/widgets/only_wifi_radiobutton_widget.dart';
 import 'package:online_library/features/profile_page/widgets/settings_container_widget.dart';
-import 'package:online_library/features/profile_page/widgets/theme_radiobutton_widget.dart';
-import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
 class ProfilePageWidget extends StatefulWidget {
@@ -36,7 +35,22 @@ enum OnlyWiFiCharacter { hawa, yok }
 
 OnlyWiFiCharacter? _onlyWiFiCharacter = OnlyWiFiCharacter.yok;
 
+
+
+  
+
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
+  void _updateTheme(ThemeCharacter themeCharacter) {
+    setState(() {
+      _themeCharacter = themeCharacter;
+      if (_themeCharacter == ThemeCharacter.acyk) {
+        AdaptiveTheme.of(context).setLight();
+      } else {
+        AdaptiveTheme.of(context).setDark();
+      }
+    });
+    
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,7 +62,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             height: 50,
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -59,7 +73,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).canvasColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Text('A'),
@@ -89,8 +103,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
               // Get.toNamed('/singIn');
             },
             buttonColor: Theme.of(context).primaryColor,
-            buttonBorderColor: Theme.of(context).primaryColor,
-            buttonTextColor: Theme.of(context).primaryColor,
+            buttonBorderColor: Theme.of(context).dividerColor,
           ),
           const SizedBox(height: 10),
           //Profile settings
@@ -114,18 +127,43 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
           SettingsContainerWidget(
             onTap: () {
               Get.defaultDialog(
-                title: 'Theme',
+                title: 'Select Theme',
                 barrierDismissible: true,
-                content: const Column(
+                content: Column(
                   children: [
-                    ThemeRadioButton(),
+                    RadioListTile<ThemeCharacter>(
+                title: const Text('Light Mode'),
+                value: ThemeCharacter.acyk,
+                groupValue: _themeCharacter,
+                onChanged: (ThemeCharacter? value) {
+                          if (value != null) {
+                            _updateTheme(value);
+                            Navigator.of(context).pop();
+                          }
+                        
+                },
+              ),
+              RadioListTile<ThemeCharacter>(
+                title: const Text('Dark Mode'),
+                value: ThemeCharacter.gara,
+                groupValue: _themeCharacter,
+                onChanged: (ThemeCharacter? value) {
+                          if (value != null) {
+                            _updateTheme(value);
+                            Navigator.of(context).pop();
+                          }
+                        },
+              ),                    
+                    
                   ],
                 ),
               );
             },
-            containerName: 'Dark theme',
-            containerItemValue: 'Öçürlen',
-            containerIcon: Icons.dark_mode_rounded,
+            containerName: 'Theme',
+            containerItemValue: _themeCharacter == ThemeCharacter.acyk
+                ? 'Light'
+                : 'Dark',
+            containerIcon: Icons.brightness_6_rounded,
           ),
           const SizedBox(height: 5),
           SettingsContainerWidget(

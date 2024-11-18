@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:online_library/widgets/book_widget.dart';
 import 'package:online_library/features/read_and_buy_page/presentation/read_and_buy_page.dart';
+import 'package:online_library/widgets/category_widget.dart';
 
 class SectionsWidget extends StatelessWidget {
   const SectionsWidget({super.key});
@@ -19,7 +19,7 @@ class SectionsWidget extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           SizedBox(
-            height: 320,
+            height: 170,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -34,7 +34,7 @@ class SectionsWidget extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const BookWidget(),
+                  child: const CategoryWidget(),
                 );
               },
             ),

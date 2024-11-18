@@ -15,10 +15,10 @@ class _SearchBoxWidgetState extends State<SearchBoxWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 40,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor ,
           borderRadius: BorderRadius.circular(10),
         ),
         child: TextField(

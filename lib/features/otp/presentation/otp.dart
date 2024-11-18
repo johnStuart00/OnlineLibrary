@@ -60,7 +60,7 @@ class _PinputExampleState extends State<PinputExample> {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(19),
-        border: Border.all(color: AppColors.mainColor),
+        border: Border.all(color: AppColors.mainWhite),
       ),
     );
 
@@ -130,21 +130,21 @@ class _PinputExampleState extends State<PinputExample> {
                     margin: const EdgeInsets.only(bottom: 9),
                     width: 22,
                     height: 1,
-                    color: AppColors.mainColor,
+                    color: AppColors.mainWhite,
                   ),
                 ],
               ),
               focusedPinTheme: defaultPinTheme.copyWith(
                 decoration: defaultPinTheme.decoration!.copyWith(
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.mainColor),
+                  border: Border.all(color: AppColors.mainWhite),
                 ),
               ),
               submittedPinTheme: defaultPinTheme.copyWith(
                 decoration: defaultPinTheme.decoration!.copyWith(
                   color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(19),
-                  border: Border.all(color: AppColors.mainColor),
+                  border: Border.all(color: AppColors.mainWhite),
                 ),
               ),
               errorPinTheme: defaultPinTheme.copyBorderWith(
@@ -164,9 +164,9 @@ class _PinputExampleState extends State<PinputExample> {
                 Get.toNamed('/alBiletMain');
               }
             },
-            buttonColor: AppColors.mainColor,
-            buttonBorderColor: AppColors.mainColor,
-            buttonTextColor: Theme.of(context).primaryColor,
+            buttonColor: AppColors.mainWhite,
+            buttonBorderColor: AppColors.mainWhite,
+            
           )
         ],
       ),

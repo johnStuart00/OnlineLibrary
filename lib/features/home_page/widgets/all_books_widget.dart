@@ -19,7 +19,7 @@ class AllBooksWidget extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           SizedBox(
-            height: 320,
+            height: 280,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,

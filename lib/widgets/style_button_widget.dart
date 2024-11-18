@@ -5,7 +5,7 @@ class StyleButtonWidget extends StatelessWidget {
   final onTap;
   final Color buttonColor;
   final Color buttonBorderColor;
-  final Color buttonTextColor;
+
 
   const StyleButtonWidget({
     super.key,
@@ -13,7 +13,6 @@ class StyleButtonWidget extends StatelessWidget {
     required this.onTap,
     required this.buttonColor,
     required this.buttonBorderColor,
-    required this.buttonTextColor,
   });
 
   @override
@@ -27,7 +26,7 @@ class StyleButtonWidget extends StatelessWidget {
         child: Center(
             child: Text(
           buttonName,
-          style: TextStyle(color: buttonTextColor),
+          style: const TextStyle(color: Colors.white),
         )),
       ),
     );

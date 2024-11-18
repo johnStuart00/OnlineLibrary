@@ -27,7 +27,7 @@ class SettingsContainerWidget extends StatelessWidget {
         height: 40,
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
@@ -43,7 +43,7 @@ class SettingsContainerWidget extends StatelessWidget {
                 height: 30,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).canvasColor,
                 ),
                 child: Padding(
                   padding: isEmpty

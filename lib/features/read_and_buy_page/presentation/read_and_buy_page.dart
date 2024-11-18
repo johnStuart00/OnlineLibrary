@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:online_library/widgets/style_button_widget.dart';
 
 class ReadAndBuyPage extends StatefulWidget {
@@ -11,113 +9,93 @@ class ReadAndBuyPage extends StatefulWidget {
 }
 
 class _ReadAndBuyPageState extends State<ReadAndBuyPage> {
-  double value = 3.5;
+ 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(Icons.arrow_back_ios_new_rounded)),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 230,
-                  height: 340,
-                  child: Placeholder(),
+    return  Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
+      body:  Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Stack(
+          children: [ 
+            Positioned(
+              top: 10,
+              child: Container(
+                alignment: Alignment.center,
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(30))
                 ),
-                const SizedBox(height: 20),
-                const Text(
+                child: IconButton(
+                  onPressed: () {Navigator.pop(context);},
+                 icon: const Icon(Icons.chevron_left_rounded,),),
+              ),),
+            Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    child: Image.asset(
+                      'assets/images/tagamly_sozler001.png',
+                      width: 230,
+                      height: 340,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                   'Name of the book',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 5),
-                const Text(
+                SizedBox(height: 5),
+                Text(
                   'Author of the book',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 10),
-                RatingStars(
-                  value: value,
-                  onValueChanged: (v) {
-                    //
-                    setState(() {
-                      value = v;
-                    });
-                  },
-                  starBuilder: (index, color) => Icon(
-                    Icons.star,
-                    color: color,
-                  ),
-                  starCount: 5,
-                  starSize: 20,
-                  valueLabelColor: const Color(0xff9b9b9b),
-                  valueLabelTextStyle: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 12.0),
-                  valueLabelRadius: 10,
-                  maxValue: 5,
-                  starSpacing: 2,
-                  maxValueVisibility: true,
-                  valueLabelVisibility: true,
-                  animationDuration: const Duration(milliseconds: 1000),
-                  valueLabelPadding:
-                      const EdgeInsets.symmetric(vertical: 1, horizontal: 8),
-                  valueLabelMargin: const EdgeInsets.only(right: 8),
-                  starOffColor: const Color(0xffe7e8ea),
-                  starColor: Colors.yellow,
-                ),
-                const SizedBox(height: 20),
-                const Text('About the author'),
-                const Text(
+                SizedBox(height: 10),
+                Text('About the author'),
+                Text(
                   'About the author text',
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10),
+                Text(
                   'Ovedview',
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10),
+                Text(
                   'Overview text',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(
-                  height: 20,
+                  ],
                 ),
-                StyleButtonWidget(
-                    buttonName: 'Buy',
-                    onTap: () {},
-                    buttonColor: Colors.red,
-                    buttonBorderColor: Colors.white,
-                    buttonTextColor: Colors.white),
-                const SizedBox(height: 20),
-                StyleButtonWidget(
-                    buttonName: 'Read',
-                    onTap: () {},
-                    buttonColor: Colors.white,
-                    buttonBorderColor: Colors.white,
-                    buttonTextColor: Colors.red)
-              ],
-            ),
-          ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const SizedBox(height: 20),
+              StyleButtonWidget(
+                  buttonName: 'Read',
+                  onTap: () {},
+                  buttonColor: Theme.of(context).primaryColor,
+                  buttonBorderColor: Theme.of(context).dividerColor,)
+            ],
+          ),]
         ),
       ),
     );

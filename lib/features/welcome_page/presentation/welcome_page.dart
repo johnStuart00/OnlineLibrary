@@ -39,7 +39,7 @@ class _WelcomePageState extends State<WelcomePage> {
               StyleButtonWidget(
                 buttonColor: const Color.fromRGBO(13, 57, 52, 1),
                 buttonBorderColor: Colors.white,
-                buttonTextColor: Colors.white,
+                
                 buttonName: AppLocalizations.of(context)!.logIn,
                 onTap: () {
                   Navigator.push(
@@ -54,7 +54,7 @@ class _WelcomePageState extends State<WelcomePage> {
               StyleButtonWidget(
                 buttonColor: Colors.white,
                 buttonBorderColor: const Color.fromRGBO(13, 57, 52, 1),
-                buttonTextColor: const Color.fromRGBO(13, 57, 52, 1),
+                
                 buttonName: AppLocalizations.of(context)!.createAccaunt,
                 onTap: () {
                   Navigator.push(

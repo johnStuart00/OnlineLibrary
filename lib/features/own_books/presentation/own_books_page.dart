@@ -102,7 +102,7 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
         activeIndex: carouselActiveIndex,
         count: urlImages.length,
         effect: ExpandingDotsEffect(
-          activeDotColor: AppColors.mainColor,
+          activeDotColor: AppColors.mainWhite,
           radius: 8,
           spacing: 10,
           dotHeight: 9,
@@ -127,7 +127,7 @@ class _FavoriteContainerWidget extends StatelessWidget {
       height: 40,
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -143,7 +143,7 @@ class _FavoriteContainerWidget extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).canvasColor,
               ),
               child: Center(child: Text(containerItemCount)),
             ),
