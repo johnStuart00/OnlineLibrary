@@ -25,6 +25,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       length: items.length,
       initialIndex: 1,
       child: Scaffold(
+        backgroundColor: Theme.of(context).canvasColor,
         appBar: AppBar(
           toolbarHeight: 150,
           elevation: 0,
@@ -52,8 +53,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
             child: TabBar(
               dividerHeight: 0.0,
               isScrollable: true,
-              labelColor: AppColors.mainColor,
-              unselectedLabelColor: AppColors.mainGrey,
+              labelColor: Theme.of(context).primaryColor,
+              unselectedLabelColor: Theme.of(context).disabledColor,
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
@@ -87,7 +88,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       ),
     );
   }
-Widget _getCategoryContent(String category) {
+
+  Widget _getCategoryContent(String category) {
     switch (category) {
       case 'Bölümler':
         return const SectionsWidget();

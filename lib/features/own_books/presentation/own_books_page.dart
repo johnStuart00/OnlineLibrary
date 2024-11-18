@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:online_library/tools/colors/onlinelibrary_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
-
 class FavoritesPageWidget extends StatefulWidget {
   const FavoritesPageWidget({super.key});
 
@@ -13,7 +11,6 @@ class FavoritesPageWidget extends StatefulWidget {
 }
 
 class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
-  
   final urlImages = [
     'assets/images/carousel_images/9f0bbe386a.jpg',
     'assets/images/carousel_images/346824345923811.webp',
@@ -130,7 +127,7 @@ class _FavoriteContainerWidget extends StatelessWidget {
       height: 40,
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.mainWhite,
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -146,7 +143,7 @@ class _FavoriteContainerWidget extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: AppColors.mainGrey100,
+                color: Theme.of(context).primaryColor,
               ),
               child: Center(child: Text(containerItemCount)),
             ),

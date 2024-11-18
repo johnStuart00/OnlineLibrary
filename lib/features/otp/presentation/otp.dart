@@ -142,7 +142,7 @@ class _PinputExampleState extends State<PinputExample> {
               ),
               submittedPinTheme: defaultPinTheme.copyWith(
                 decoration: defaultPinTheme.decoration!.copyWith(
-                  color: AppColors.mainWhite,
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(19),
                   border: Border.all(color: AppColors.mainColor),
                 ),
@@ -156,17 +156,18 @@ class _PinputExampleState extends State<PinputExample> {
             height: 20,
           ),
           StyleButtonWidget(
-              buttonName: 'Tassyklamak',
-              onTap: () {
-                focusNode.unfocus();
-                formKey.currentState!.validate();
-                if (pinController.text == '2222') {
-                  Get.toNamed('/alBiletMain');
-                }
-              },
-              buttonColor: AppColors.mainColor,
-              buttonBorderColor: AppColors.mainColor,
-              buttonTextColor: AppColors.mainWhite)
+            buttonName: 'Tassyklamak',
+            onTap: () {
+              focusNode.unfocus();
+              formKey.currentState!.validate();
+              if (pinController.text == '2222') {
+                Get.toNamed('/alBiletMain');
+              }
+            },
+            buttonColor: AppColors.mainColor,
+            buttonBorderColor: AppColors.mainColor,
+            buttonTextColor: Theme.of(context).primaryColor,
+          )
         ],
       ),
     );

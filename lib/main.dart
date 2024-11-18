@@ -11,7 +11,11 @@ import 'package:online_library/tools/colors/theme/app_theme.dart';
 
 void main() async {
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
-  runApp(OnlineLibrary(savedThemeMode: savedThemeMode,),);
+  runApp(
+    OnlineLibrary(
+      savedThemeMode: savedThemeMode,
+    ),
+  );
 }
 
 class OnlineLibrary extends StatefulWidget {
@@ -25,28 +29,36 @@ class OnlineLibrary extends StatefulWidget {
 class _OnlineLibraryState extends State<OnlineLibrary> {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(light: AppThemes.lightTheme, initial: widget.savedThemeMode ?? AdaptiveThemeMode.system, builder: (theme, darkTheme) => GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Online Library",
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      initialRoute: '/libraryMain',
-      getPages: [
-        GetPage(name: '/welcome', page: () => const WelcomePage()),
-        GetPage(name: '/libraryMain', page: () => const LibraryMainPage()),
-        GetPage(name: '/readAndBuyPage', page: () => const ReadAndBuyPage()),
-        GetPage(
-            name: '/libraryMain/mainDetails',
-            page: () => const MainPageWidget()),
-        GetPage(name: '/get-token-page', page: () => const GetTokenPage())
-      ],
-      onGenerateRoute: (RouteSettings settings) {
-        return MaterialPageRoute<void>(builder: (context) {
-          return const Text('Default Route');
-        });
-      },
-    ));
+    return AdaptiveTheme(
+        light: AppThemes.lightTheme,
+        dark: AppThemes.darkTheme,
+        initial: widget.savedThemeMode ?? AdaptiveThemeMode.system,
+        builder: (theme, darkTheme) => GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: "Online Library",
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              theme: theme,
+              darkTheme: darkTheme,
+              initialRoute: '/libraryMain',
+              getPages: [
+                GetPage(name: '/welcome', page: () => const WelcomePage()),
+                GetPage(
+                    name: '/libraryMain', page: () => const LibraryMainPage()),
+                GetPage(
+                    name: '/readAndBuyPage',
+                    page: () => const ReadAndBuyPage()),
+                GetPage(
+                    name: '/libraryMain/mainDetails',
+                    page: () => const MainPageWidget()),
+                GetPage(
+                    name: '/get-token-page', page: () => const GetTokenPage())
+              ],
+              onGenerateRoute: (RouteSettings settings) {
+                return MaterialPageRoute<void>(builder: (context) {
+                  return const Text('Default Route');
+                });
+              },
+            ));
   }
 }
-
-

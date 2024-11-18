@@ -101,15 +101,15 @@ class _LogInPageState extends State<LogInPage> {
               const SizedBox(height: 10),
               PasswordTextField(passwordController: _passwordController),
               const SizedBox(height: 30),
-              StyleButtonWidget(
-                buttonColor: AppColors.mainColor,
-                buttonBorderColor: AppColors.mainWhite,
-                buttonTextColor: AppColors.mainWhite,
-                buttonName: AppLocalizations.of(context)!.logIn,
-                onTap: () {
-                  _login();
-                },
-              ),
+              // StyleButtonWidget(
+              //   buttonColor: AppColors.mainColor,
+              //   buttonBorderColor: AppColors.mainWhite,
+              //   buttonTextColor: AppColors.mainWhite,
+              //   buttonName: AppLocalizations.of(context)!.logIn,
+              //   onTap: () {
+              //     _login();
+              //   },
+              // ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

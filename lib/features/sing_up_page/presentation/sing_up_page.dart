@@ -37,18 +37,18 @@ class _SingUpPageState extends State<SingUpPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                StyleButtonWidget(
-                  buttonColor: AppColors.mainColor,
-                  buttonBorderColor: AppColors.mainWhite,
-                  buttonTextColor: AppColors.mainWhite,
-                  buttonName: AppLocalizations.of(context)!.singUp,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const GetTokenPage()));
-                  },
-                ),
+                // StyleButtonWidget(
+                //   buttonColor: AppColors.mainColor,
+                //   buttonBorderColor: AppColors.mainWhite,
+                //   buttonTextColor: AppColors.mainWhite,
+                //   buttonName: AppLocalizations.of(context)!.singUp,
+                //   onTap: () {
+                //     Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => const GetTokenPage()));
+                //   },
+                // ),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

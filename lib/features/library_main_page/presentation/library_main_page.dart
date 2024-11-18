@@ -27,6 +27,7 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
       body: SafeArea(
         child: IndexedStack(
           index: _selectedPage,
@@ -39,26 +40,35 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          color: Theme.of(context).canvasColor,
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(30),
             topLeft: Radius.circular(30),
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).dividerColor,
+              offset: const Offset(0, -4),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ],
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
-              rippleColor: AppColors.mainColor,
-              hoverColor: AppColors.mainGrey100,
-              tabBorderRadius: 25,
+              rippleColor: Theme.of(context).primaryColor,
+              activeColor: Theme.of(context).primaryColor,
               tabShadow: [
-                BoxShadow(color: Theme.of(context).shadowColor, blurRadius: 2)
+                BoxShadow(
+                  color: Theme.of(context).cardColor,
+                  blurRadius: 2,
+                )
               ],
               curve: Curves.decelerate,
               duration: const Duration(milliseconds: 400),
               gap: 6,
-              activeColor:
-                  Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+              tabBorderRadius: 25,
               iconSize: 24,
               padding: const EdgeInsets.all(15),
               selectedIndex: _selectedPage,
@@ -67,23 +77,20 @@ class _LibraryMainPageState extends State<LibraryMainPage> {
                 GButton(
                   icon: Icons.my_library_books_outlined,
                   text: "Sanow",
-                  iconColor: Theme.of(context)
-                      .bottomNavigationBarTheme
-                      .unselectedItemColor,
+                  iconActiveColor: Theme.of(context).primaryColor,
+                  backgroundColor: Theme.of(context).cardColor,
                 ),
                 GButton(
                   icon: Icons.menu_book_sharp,
                   text: "Meniň kitaplarym",
-                  iconColor: Theme.of(context)
-                      .bottomNavigationBarTheme
-                      .unselectedItemColor,
+                  iconActiveColor: Theme.of(context).primaryColor,
+                  backgroundColor: Theme.of(context).cardColor,
                 ),
                 GButton(
                   icon: Icons.person,
                   text: "Agza bol",
-                  iconColor: Theme.of(context)
-                      .bottomNavigationBarTheme
-                      .unselectedItemColor,
+                  iconActiveColor: Theme.of(context).primaryColor,
+                  backgroundColor: Theme.of(context).cardColor,
                 ),
               ]),
         ),

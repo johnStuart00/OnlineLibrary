@@ -48,7 +48,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             height: 50,
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.mainWhite,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -59,7 +59,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: AppColors.mainGrey100,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Text('A'),
@@ -88,9 +88,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             onTap: () {
               // Get.toNamed('/singIn');
             },
-            buttonColor: AppColors.mainColor,
-            buttonBorderColor: AppColors.mainColor,
-            buttonTextColor: AppColors.mainWhite,
+            buttonColor: Theme.of(context).primaryColor,
+            buttonBorderColor: Theme.of(context).primaryColor,
+            buttonTextColor: Theme.of(context).primaryColor,
           ),
           const SizedBox(height: 10),
           //Profile settings
@@ -199,4 +199,3 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
     );
   }
 }
-

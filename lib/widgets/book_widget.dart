@@ -26,7 +26,6 @@ class _BookWidgetState extends State<BookWidget> {
       child: Container(
         width: 200,
         decoration: BoxDecoration(
-          color: AppColors.mainWhite,
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
@@ -60,9 +59,6 @@ class _BookWidgetState extends State<BookWidget> {
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
                           key: ValueKey<bool>(isFavorite),
-                          color: isFavorite
-                              ? AppColors.mainError
-                              : AppColors.mainGrey,
                           size: 30.0,
                         ),
                       ),
